@@ -1,9 +1,9 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
-
-<!-- molla/contact.html  22 Nov 2019 10:04:01 GMT -->
+<!-- molla/{% url 'shared:category' %}  22 Nov 2019 10:02:48 GMT -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,6 +28,9 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <!-- Main CSS File -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/owl-carousel/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/magnific-popup/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/nouislider/nouislider.css' %}">
 </head>
 
 <body>
@@ -64,9 +67,9 @@
                                 <a href="#">Links</a>
                                 <ul>
                                     <li><a href="tel:#"><i class="icon-phone"></i>Call: +0123 456 789</a></li>
-                                    <li><a href="wishlist.html"><i class="icon-heart-o"></i>Wishlist <span>(3)</span></a></li>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a href="../products/wishlist.html"><i class="icon-heart-o"></i>Wishlist <span>(3)</span></a></li>
+                                    <li><a href="../shared/about.html">About Us</a></li>
+                                    <li><a href="../users/contact.html">Contact Us</a></li>
                                     <li><a href="#signin-modal" data-toggle="modal"><i class="icon-user"></i>Login</a></li>
                                 </ul>
                             </li>
@@ -83,14 +86,14 @@
                             <i class="icon-bars"></i>
                         </button>
 
-                        <a href="index.html" class="logo">
+                        <a href="{% url 'shared:home' %}" class="logo">
                             <img src="{% static 'images/logo.png' %}" alt="Molla Logo" width="105" height="25">
                         </a>
 
                         <nav class="main-nav">
                             <ul class="menu sf-arrows">
                                 <li class="megamenu-container active">
-                                    <a href="index.html" class="sf-with-ul">Home</a>
+                                    <a href="{% url 'shared:home' %}" class="sf-with-ul">Home</a>
 
                                     <div class="megamenu demo">
                                         <div class="menu-col">
@@ -274,7 +277,7 @@
                                     </div><!-- End .megamenu -->
                                 </li>
                                 <li>
-                                    <a href="category.html" class="sf-with-ul">Shop</a>
+                                    <a href="{% url 'shared:category' %}" class="sf-with-ul">Shop</a>
 
                                     <div class="megamenu megamenu-md">
                                         <div class="row no-gutters">
@@ -286,7 +289,7 @@
                                                             <ul>
                                                                 <li><a href="category-list.html">Shop List</a></li>
                                                                 <li><a href="category-2cols.html">Shop Grid 2 Columns</a></li>
-                                                                <li><a href="category.html">Shop Grid 3 Columns</a></li>
+                                                                <li><a href="{% url 'shared:category' %}">Shop Grid 3 Columns</a></li>
                                                                 <li><a href="category-4cols.html">Shop Grid 4 Columns</a></li>
                                                                 <li><a href="category-market.html"><span>Shop Market<span class="tip tip-new">New</span></span></a></li>
                                                             </ul>
@@ -308,8 +311,8 @@
                                                             <ul>
                                                                 <li><a href="cart.html">Cart</a></li>
                                                                 <li><a href="checkout.html">Checkout</a></li>
-                                                                <li><a href="wishlist.html">Wishlist</a></li>
-                                                                <li><a href="dashboard.html">My Account</a></li>
+                                                                <li><a href="../products/wishlist.html">Wishlist</a></li>
+                                                                <li><a href="../users/dashboard.html">My Account</a></li>
                                                                 <li><a href="#">Lookbook</a></li>
                                                             </ul>
                                                         </div><!-- End .col-md-6 -->
@@ -319,9 +322,8 @@
 
                                             <div class="col-md-4">
                                                 <div class="banner banner-overlay">
-                                                    <a href="category.html" class="banner banner-menu">
+                                                    <a href="{% url 'shared:category' %}" class="banner banner-menu">
                                                         <img src="{% static 'images/menu/banner-1.jpg' %}" alt="Banner">
-
                                                         <div class="banner-content banner-content-top">
                                                             <div class="banner-title text-white">Last <br>Chance<br><span><strong>Sale</strong></span></div><!-- End .banner-title -->
                                                         </div><!-- End .banner-content -->
@@ -332,7 +334,7 @@
                                     </div><!-- End .megamenu megamenu-md -->
                                 </li>
                                 <li>
-                                    <a href="product.html" class="sf-with-ul">Product</a>
+                                    <a href="{% url 'shared:product' %}" class="sf-with-ul">Product</a>
 
                                     <div class="megamenu megamenu-sm">
                                         <div class="row no-gutters">
@@ -340,12 +342,12 @@
                                                 <div class="menu-col">
                                                     <div class="menu-title">Product Details</div><!-- End .menu-title -->
                                                     <ul>
-                                                        <li><a href="product.html">Default</a></li>
+                                                        <li><a href="{% url 'shared:product' %}">Default</a></li>
                                                         <li><a href="product-centered.html">Centered</a></li>
                                                         <li><a href="product-extended.html"><span>Extended Info<span class="tip tip-new">New</span></span></a></li>
                                                         <li><a href="product-gallery.html">Gallery</a></li>
                                                         <li><a href="product-sticky.html">Sticky Info</a></li>
-                                                        <li><a href="product-lists.html">Boxed With Sidebar</a></li>
+                                                        <li><a href="../products/product-lists.html">Boxed With Sidebar</a></li>
                                                         <li><a href="product-fullwidth.html">Full Width</a></li>
                                                         <li><a href="product-masonry.html">Masonry Sticky Info</a></li>
                                                     </ul>
@@ -354,9 +356,8 @@
 
                                             <div class="col-md-6">
                                                 <div class="banner banner-overlay">
-                                                    <a href="category.html">
+                                                    <a href="{% url 'shared:category' %}">
                                                         <img src="{% static 'images/menu/banner-2.jpg' %}" alt="Banner">
-
                                                         <div class="banner-content banner-content-bottom">
                                                             <div class="banner-title text-white">New Trends<br><span><strong>spring 2019</strong></span></div><!-- End .banner-title -->
                                                         </div><!-- End .banner-content -->
@@ -368,36 +369,32 @@
                                 </li>
                                 <li>
                                     <a href="#" class="sf-with-ul">Pages</a>
-
                                     <ul>
                                         <li>
-                                            <a href="about.html" class="sf-with-ul">About</a>
-
+                                            <a href="../shared/about.html" class="sf-with-ul">About</a>
                                             <ul>
-                                                <li><a href="about.html">About 01</a></li>
+                                                <li><a href="../shared/about.html">About 01</a></li>
                                                 <li><a href="about-2.html">About 02</a></li>
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="contact.html" class="sf-with-ul">Contact</a>
-
+                                            <a href="../users/contact.html" class="sf-with-ul">Contact</a>
                                             <ul>
-                                                <li><a href="contact.html">Contact 01</a></li>
+                                                <li><a href="../users/contact.html">Contact 01</a></li>
                                                 <li><a href="contact-2.html">Contact 02</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="login.html">Login</a></li>
-                                        <li><a href="faq.html">FAQs</a></li>
-                                        <li><a href="404.html">Error 404</a></li>
-                                        <li><a href="coming-soon.html">Coming Soon</a></li>
+                                        <li><a href="../users/login.html">Login</a></li>
+                                        <li><a href="../users/faq.html">FAQs</a></li>
+                                        <li><a href="../shared/404.html">Error 404</a></li>
+                                        <li><a href="../users/coming-soon.html">Coming Soon</a></li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="blog.html" class="sf-with-ul">Blog</a>
-
+                                    <a href="{% url 'shared:blog' %}" class="sf-with-ul">Blog</a>
                                     <ul>
-                                        <li><a href="blog.html">Classic</a></li>
-                                        <li><a href="blog-list.html">Listing</a></li>
+                                        <li><a href="{% url 'shared:blog' %}">Classic</a></li>
+                                        <li><a href="../blogs/blog-list.html">Listing</a></li>
                                         <li>
                                             <a href="#">Grid</a>
                                             <ul>
@@ -412,7 +409,7 @@
                                             <ul>
                                                 <li><a href="blog-masonry-2cols.html">Masonry 2 columns</a></li>
                                                 <li><a href="blog-masonry-3cols.html">Masonry 3 columns</a></li>
-                                                <li><a href="blog-masonry-4cols.html">Masonry 4 columns</a></li>
+                                                <li><a href="../blogs/blog-masonry-4cols.html">Masonry 4 columns</a></li>
                                                 <li><a href="blog-masonry-sidebar.html">Masonry sidebar</a></li>
                                             </ul>
                                         </li>
@@ -435,13 +432,12 @@
                                 </li>
                                 <li>
                                     <a href="elements-list.html" class="sf-with-ul">Elements</a>
-
                                     <ul>
                                         <li><a href="elements-products.html">Products</a></li>
                                         <li><a href="elements-typography.html">Typography</a></li>
                                         <li><a href="elements-titles.html">Titles</a></li>
-                                        <li><a href="elements-banners.html">Banners</a></li>
-                                        <li><a href="elements-product-category.html">Product Category</a></li>
+                                        <li><a href="elements.html">Banners</a></li>
+                                        <li><a href="elements-product-{% url 'shared:category' %}">Product Category</a></li>
                                         <li><a href="elements-video-banners.html">Video Banners</a></li>
                                         <li><a href="elements-buttons.html">Buttons</a></li>
                                         <li><a href="elements-accordions.html">Accordions</a></li>
@@ -467,23 +463,22 @@
                                 </div><!-- End .header-search-wrapper -->
                             </form>
                         </div><!-- End .header-search -->
+
                         <div class="dropdown compare-dropdown">
                             <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static" title="Compare Products" aria-label="Compare Products">
                                 <i class="icon-random"></i>
                             </a>
-
                             <div class="dropdown-menu dropdown-menu-right">
                                 <ul class="compare-products">
                                     <li class="compare-product">
                                         <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
-                                        <h4 class="compare-product-title"><a href="product.html">Blue Night Dress</a></h4>
+                                        <h4 class="compare-product-title"><a href="{% url 'shared:product' %}">Blue Night Dress</a></h4>
                                     </li>
                                     <li class="compare-product">
                                         <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
-                                        <h4 class="compare-product-title"><a href="product.html">White Long Skirt</a></h4>
+                                        <h4 class="compare-product-title"><a href="{% url 'shared:product' %}">White Long Skirt</a></h4>
                                     </li>
                                 </ul>
-
                                 <div class="compare-actions">
                                     <a href="#" class="action-link">Clear All</a>
                                     <a href="#" class="btn btn-outline-primary-2"><span>Compare</span><i class="icon-long-arrow-right"></i></a>
@@ -496,23 +491,20 @@
                                 <i class="icon-shopping-cart"></i>
                                 <span class="cart-count">2</span>
                             </a>
-
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="dropdown-cart-products">
                                     <div class="product">
                                         <div class="product-cart-details">
                                             <h4 class="product-title">
-                                                <a href="product.html">Beige knitted elastic runner shoes</a>
+                                                <a href="{% url 'shared:product' %}">Beige knitted elastic runner shoes</a>
                                             </h4>
-
                                             <span class="cart-product-info">
                                                 <span class="cart-product-qty">1</span>
                                                 x $84.00
                                             </span>
                                         </div><!-- End .product-cart-details -->
-
                                         <figure class="product-image-container">
-                                            <a href="product.html" class="product-image">
+                                            <a href="{% url 'shared:product' %}" class="product-image">
                                                 <img src="{% static 'images/products/cart/product-1.jpg' %}" alt="product">
                                             </a>
                                         </figure>
@@ -522,17 +514,15 @@
                                     <div class="product">
                                         <div class="product-cart-details">
                                             <h4 class="product-title">
-                                                <a href="product.html">Blue utility pinafore denim dress</a>
+                                                <a href="{% url 'shared:product' %}">Blue utility pinafore denim dress</a>
                                             </h4>
-
                                             <span class="cart-product-info">
                                                 <span class="cart-product-qty">1</span>
                                                 x $76.00
                                             </span>
                                         </div><!-- End .product-cart-details -->
-
                                         <figure class="product-image-container">
-                                            <a href="product.html" class="product-image">
+                                            <a href="{% url 'shared:product' %}" class="product-image">
                                                 <img src="{% static 'images/products/cart/product-2.jpg' %}" alt="product">
                                             </a>
                                         </figure>
@@ -542,7 +532,6 @@
 
                                 <div class="dropdown-cart-total">
                                     <span>Total</span>
-
                                     <span class="cart-total-price">$160.00</span>
                                 </div><!-- End .dropdown-cart-total -->
 
@@ -558,208 +547,679 @@
         </header><!-- End .header -->
 
         <main class="main">
-            <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
+        	<div class="page-header text-center" style="background-image: url('{% static 'images/page-header-bg.jpg' %}')">
+        		<div class="container">
+        			<h1 class="page-title">Grid 3 Columns<span>Shop</span></h1>
+        		</div><!-- End .container -->
+        	</div><!-- End .page-header -->
+
+            <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
                 <div class="container">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Contact us</li>
+                        <li class="breadcrumb-item"><a href="{% url 'shared:home' %}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Shop</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Grid 3 Columns</li>
                     </ol>
                 </div><!-- End .container -->
             </nav><!-- End .breadcrumb-nav -->
-            <div class="container">
-	        	<div class="page-header page-header-big text-center" style="background-image: url('{% static 'images/contact-header-bg.jpg' %}')">
-        			<h1 class="page-title text-white">Contact us<span class="text-white">keep in touch with us</span></h1>
-	        	</div><!-- End .page-header -->
-            </div><!-- End .container -->
 
-            <div class="page-content pb-0">
+            <div class="page-content">
                 <div class="container">
                 	<div class="row">
-                		<div class="col-lg-6 mb-2 mb-lg-0">
-                			<h2 class="title mb-1">Contact Information</h2><!-- End .title mb-2 -->
-                			<p class="mb-3">Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
-                			<div class="row">
-                				<div class="col-sm-7">
-                					<div class="contact-info">
-                						<h3>The Office</h3>
+                		<div class="col-lg-9">
+                			<div class="toolbox">
+                				<div class="toolbox-left">
+                					<div class="toolbox-info">
+                						Showing <span>9 of 56</span> Products
+                					</div><!-- End .toolbox-info -->
+                				</div><!-- End .toolbox-left -->
 
-                						<ul class="contact-list">
-                							<li>
-                								<i class="icon-map-marker"></i>
-	                							70 Washington Square South New York, NY 10012, United States
-	                						</li>
-                							<li>
-                								<i class="icon-phone"></i>
-                								<a href="tel:#">+92 423 567</a>
-                							</li>
-                							<li>
-                								<i class="icon-envelope"></i>
-                								<a href="/cdn-cgi/l/email-protection#9dbe"><span class="__cf_email__" data-cfemail="177e797178575a787b7b763974787a">[email&#160;protected]</span></a>
-                							</li>
-                						</ul><!-- End .contact-list -->
-                					</div><!-- End .contact-info -->
-                				</div><!-- End .col-sm-7 -->
+                				<div class="toolbox-right">
+                					<div class="toolbox-sort">
+                						<label for="sortby">Sort by:</label>
+                						<div class="select-custom">
+											<select name="sortby" id="sortby" class="form-control">
+												<option value="popularity" selected="selected">Most Popular</option>
+												<option value="rating">Most Rated</option>
+												<option value="date">Date</option>
+											</select>
+										</div>
+                					</div><!-- End .toolbox-sort -->
+                					<div class="toolbox-layout">
+                						<a href="category-list.html" class="btn-layout">
+                							<svg width="16" height="10">
+                								<rect x="0" y="0" width="4" height="4" />
+                								<rect x="6" y="0" width="10" height="4" />
+                								<rect x="0" y="6" width="4" height="4" />
+                								<rect x="6" y="6" width="10" height="4" />
+                							</svg>
+                						</a>
+                						<a href="category-2cols.html" class="btn-layout">
+                							<svg width="10" height="10">
+                								<rect x="0" y="0" width="4" height="4" />
+                								<rect x="6" y="0" width="4" height="4" />
+                								<rect x="0" y="6" width="4" height="4" />
+                								<rect x="6" y="6" width="4" height="4" />
+                							</svg>
+                						</a>
+                						<a href="{% url 'shared:category' %}" class="btn-layout active">
+                							<svg width="16" height="10">
+                								<rect x="0" y="0" width="4" height="4" />
+                								<rect x="6" y="0" width="4" height="4" />
+                								<rect x="12" y="0" width="4" height="4" />
+                								<rect x="0" y="6" width="4" height="4" />
+                								<rect x="6" y="6" width="4" height="4" />
+                								<rect x="12" y="6" width="4" height="4" />
+                							</svg>
+                						</a>
+                						<a href="category-4cols.html" class="btn-layout">
+                							<svg width="22" height="10">
+                								<rect x="0" y="0" width="4" height="4" />
+                								<rect x="6" y="0" width="4" height="4" />
+                								<rect x="12" y="0" width="4" height="4" />
+                								<rect x="18" y="0" width="4" height="4" />
+                								<rect x="0" y="6" width="4" height="4" />
+                								<rect x="6" y="6" width="4" height="4" />
+                								<rect x="12" y="6" width="4" height="4" />
+                								<rect x="18" y="6" width="4" height="4" />
+                							</svg>
+                						</a>
+                					</div><!-- End .toolbox-layout -->
+                				</div><!-- End .toolbox-right -->
+                			</div><!-- End .toolbox -->
 
-                				<div class="col-sm-5">
-                					<div class="contact-info">
-                						<h3>The Office</h3>
+                            <div class="products mb-3">
+                                <div class="row justify-content-center">
+                                    <div class="col-6 col-md-4 col-lg-4">
+                                        <div class="product product-7 text-center">
+                                            <figure class="product-media">
+                                                <span class="product-label label-new">New</span>
+                                                <a href="{% url 'shared:product' %}">
+                                                    <img src="{% static 'images/products/product-4.jpg' %}" alt="Product image" class="product-image">
+                                                </a>
+                                                <div class="product-action-vertical">
+                                                    <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                                                    <a href="../../assets/popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
+                                                    <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
+                                                </div><!-- End .product-action-vertical -->
+                                                <div class="product-action">
+                                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                                </div><!-- End .product-action -->
+                                            </figure><!-- End .product-media -->
+                                            <div class="product-body">
+                                                <div class="product-cat"><a href="#">Women</a></div>
+                                                <h3 class="product-title"><a href="{% url 'shared:product' %}">Brown paperbag waist pencil skirt</a></h3>
+                                                <div class="product-price">$60.00</div>
+                                                <div class="ratings-container">
+                                                    <div class="ratings">
+                                                        <div class="ratings-val" style="width: 20%;"></div>
+                                                    </div>
+                                                    <span class="ratings-text">( 2 Reviews )</span>
+                                                </div>
+                                                <div class="product-nav product-nav-thumbs">
+                                                    <a href="#" class="active">
+                                                        <img src="{% static 'images/products/product-4-thumb.jpg' %}" alt="product desc">
+                                                    </a>
+                                                    <a href="#">
+                                                        <img src="{% static 'images/products/product-4-2-thumb.jpg' %}" alt="product desc">
+                                                    </a>
+                                                    <a href="#">
+                                                        <img src="{% static 'images/products/product-4-3-thumb.jpg' %}" alt="product desc">
+                                                    </a>
+                                                </div><!-- End .product-nav -->
+                                            </div><!-- End .product-body -->
+                                        </div><!-- End .product -->
+                                    </div>
 
-                						<ul class="contact-list">
-                							<li>
-                								<i class="icon-clock-o"></i>
-	                							<span class="text-dark">Monday-Saturday</span> <br>11am-7pm ET
-	                						</li>
-                							<li>
-                								<i class="icon-calendar"></i>
-                								<span class="text-dark">Sunday</span> <br>11am-6pm ET
-                							</li>
-                						</ul><!-- End .contact-list -->
-                					</div><!-- End .contact-info -->
-                				</div><!-- End .col-sm-5 -->
-                			</div><!-- End .row -->
-                		</div><!-- End .col-lg-6 -->
-                		<div class="col-lg-6">
-                			<h2 class="title mb-1">Got Any Questions?</h2><!-- End .title mb-2 -->
-                			<p class="mb-2">Use the form below to get in touch with the sales team</p>
+                                    <div class="col-6 col-md-4 col-lg-4">
+                                        <div class="product product-7 text-center">
+                                            <figure class="product-media">
+                                                <a href="{% url 'shared:product' %}">
+                                                    <img src="{% static 'images/products/product-5.jpg' %}" alt="Product image" class="product-image">
+                                                </a>
+                                                <div class="product-action-vertical">
+                                                    <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                                                    <a href="../../assets/popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
+                                                    <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
+                                                </div><!-- End .product-action-vertical -->
+                                                <div class="product-action">
+                                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                                </div><!-- End .product-action -->
+                                            </figure><!-- End .product-media -->
+                                            <div class="product-body">
+                                                <div class="product-cat"><a href="#">Dresses</a></div>
+                                                <h3 class="product-title"><a href="{% url 'shared:product' %}">Dark yellow lace cut out swing dress</a></h3>
+                                                <div class="product-price">$84.00</div>
+                                                <div class="ratings-container">
+                                                    <div class="ratings">
+                                                        <div class="ratings-val" style="width: 0%;"></div>
+                                                    </div>
+                                                    <span class="ratings-text">( 0 Reviews )</span>
+                                                </div>
+                                                <div class="product-nav product-nav-thumbs">
+                                                    <a href="#" class="active">
+                                                        <img src="{% static 'images/products/product-5-thumb.jpg' %}" alt="product desc">
+                                                    </a>
+                                                    <a href="#">
+                                                        <img src="{% static 'images/products/product-5-2-thumb.jpg' %}" alt="product desc">
+                                                    </a>
+                                                </div><!-- End .product-nav -->
+                                            </div><!-- End .product-body -->
+                                        </div><!-- End .product -->
+                                    </div>
 
-                			<form action="#" class="contact-form mb-3">
-                				<div class="row">
-                					<div class="col-sm-6">
-                                        <label for="cname" class="sr-only">Name</label>
-                						<input type="text" class="form-control" id="cname" placeholder="Name *" required>
-                					</div><!-- End .col-sm-6 -->
+                                    <div class="col-6 col-md-4 col-lg-4">
+                                        <div class="product product-7 text-center">
+                                            <figure class="product-media">
+                                                <span class="product-label label-out">Out of Stock</span>
+                                                <a href="{% url 'shared:product' %}">
+                                                    <img src="{% static 'images/products/product-6.jpg' %}" alt="Product image" class="product-image">
+                                                </a>
+                                                <div class="product-action-vertical">
+                                                    <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                                                    <a href="../../assets/popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
+                                                    <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
+                                                </div><!-- End .product-action-vertical -->
+                                                <div class="product-action">
+                                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                                </div><!-- End .product-action -->
+                                            </figure><!-- End .product-media -->
+                                            <div class="product-body">
+                                                <div class="product-cat"><a href="#">Jackets</a></div>
+                                                <h3 class="product-title"><a href="{% url 'shared:product' %}">Khaki utility boiler jumpsuit</a></h3>
+                                                <div class="product-price"><span class="out-price">$120.00</span></div>
+                                                <div class="ratings-container">
+                                                    <div class="ratings">
+                                                        <div class="ratings-val" style="width: 80%;"></div>
+                                                    </div>
+                                                    <span class="ratings-text">( 6 Reviews )</span>
+                                                </div>
+                                            </div><!-- End .product-body -->
+                                        </div><!-- End .product -->
+                                    </div>
 
-                					<div class="col-sm-6">
-                                        <label for="cemail" class="sr-only">Email</label>
-                						<input type="email" class="form-control" id="cemail" placeholder="Email *" required>
-                					</div><!-- End .col-sm-6 -->
-                				</div><!-- End .row -->
+                                    <div class="col-6 col-md-4 col-lg-4">
+                                        <div class="product product-7 text-center">
+                                            <figure class="product-media">
+                                                <a href="{% url 'shared:product' %}">
+                                                    <img src="{% static 'images/products/product-7.jpg' %}" alt="Product image" class="product-image">
+                                                </a>
+                                                <div class="product-action-vertical">
+                                                    <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                                                    <a href="../../assets/popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
+                                                    <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
+                                                </div><!-- End .product-action-vertical -->
+                                                <div class="product-action">
+                                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                                </div><!-- End .product-action -->
+                                            </figure><!-- End .product-media -->
+                                            <div class="product-body">
+                                                <div class="product-cat"><a href="#">Jeans</a></div>
+                                                <h3 class="product-title"><a href="{% url 'shared:product' %}">Blue utility pinafore denim dress</a></h3>
+                                                <div class="product-price">$76.00</div>
+                                                <div class="ratings-container">
+                                                    <div class="ratings">
+                                                        <div class="ratings-val" style="width: 20%;"></div>
+                                                    </div>
+                                                    <span class="ratings-text">( 2 Reviews )</span>
+                                                </div>
+                                            </div><!-- End .product-body -->
+                                        </div><!-- End .product -->
+                                    </div>
 
-                				<div class="row">
-                					<div class="col-sm-6">
-                                        <label for="cphone" class="sr-only">Phone</label>
-                						<input type="tel" class="form-control" id="cphone" placeholder="Phone">
-                					</div><!-- End .col-sm-6 -->
+                                    <div class="col-6 col-md-4 col-lg-4">
+                                        <div class="product product-7 text-center">
+                                            <figure class="product-media">
+                                                <span class="product-label label-new">New</span>
+                                                <a href="{% url 'shared:product' %}">
+                                                    <img src="{% static 'images/products/product-8.jpg' %}" alt="Product image" class="product-image">
+                                                </a>
+                                                <div class="product-action-vertical">
+                                                    <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                                                    <a href="../../assets/popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
+                                                    <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
+                                                </div><!-- End .product-action-vertical -->
+                                                <div class="product-action">
+                                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                                </div><!-- End .product-action -->
+                                            </figure><!-- End .product-media -->
+                                            <div class="product-body">
+                                                <div class="product-cat"><a href="#">Shoes</a></div>
+                                                <h3 class="product-title"><a href="{% url 'shared:product' %}">Beige knitted elastic runner shoes</a></h3>
+                                                <div class="product-price">$84.00</div>
+                                                <div class="ratings-container">
+                                                    <div class="ratings">
+                                                        <div class="ratings-val" style="width: 0%;"></div>
+                                                    </div>
+                                                    <span class="ratings-text">( 0 Reviews )</span>
+                                                </div>
+                                                <div class="product-nav product-nav-thumbs">
+                                                    <a href="#" class="active">
+                                                        <img src="{% static 'images/products/product-8-thumb.jpg' %}" alt="product desc">
+                                                    </a>
+                                                    <a href="#">
+                                                        <img src="{% static 'images/products/product-8-2-thumb.jpg' %}" alt="product desc">
+                                                    </a>
+                                                </div><!-- End .product-nav -->
+                                            </div><!-- End .product-body -->
+                                        </div><!-- End .product -->
+                                    </div>
 
-                					<div class="col-sm-6">
-                                        <label for="csubject" class="sr-only">Subject</label>
-                						<input type="text" class="form-control" id="csubject" placeholder="Subject">
-                					</div><!-- End .col-sm-6 -->
-                				</div><!-- End .row -->
+                                    <div class="col-6 col-md-4 col-lg-4">
+                                        <div class="product product-7 text-center">
+                                            <figure class="product-media">
+                                                <a href="{% url 'shared:product' %}">
+                                                    <img src="{% static 'images/products/product-9.jpg' %}" alt="Product image" class="product-image">
+                                                </a>
+                                                <div class="product-action-vertical">
+                                                    <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                                                    <a href="../../assets/popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
+                                                    <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
+                                                </div><!-- End .product-action-vertical -->
+                                                <div class="product-action">
+                                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                                </div><!-- End .product-action -->
+                                            </figure><!-- End .product-media -->
+                                            <div class="product-body">
+                                                <div class="product-cat"><a href="#">Bags</a></div>
+                                                <h3 class="product-title"><a href="{% url 'shared:product' %}">Orange saddle lock front chain cross body bag</a></h3>
+                                                <div class="product-price">$84.00</div>
+                                                <div class="ratings-container">
+                                                    <div class="ratings">
+                                                        <div class="ratings-val" style="width: 60%;"></div>
+                                                    </div>
+                                                    <span class="ratings-text">( 1 Reviews )</span>
+                                                </div>
+                                                <div class="product-nav product-nav-thumbs">
+                                                    <a href="#" class="active">
+                                                        <img src="{% static 'images/products/product-9-thumb.jpg' %}" alt="product desc">
+                                                    </a>
+                                                    <a href="#">
+                                                        <img src="{% static 'images/products/product-9-2-thumb.jpg' %}" alt="product desc">
+                                                    </a>
+                                                    <a href="#">
+                                                        <img src="{% static 'images/products/product-9-3-thumb.jpg' %}" alt="product desc">
+                                                    </a>
+                                                </div><!-- End .product-nav -->
+                                            </div><!-- End .product-body -->
+                                        </div><!-- End .product -->
+                                    </div>
 
-                                <label for="cmessage" class="sr-only">Message</label>
-                				<textarea class="form-control" cols="30" rows="4" id="cmessage" required placeholder="Message *"></textarea>
+                                    <div class="col-6 col-md-4 col-lg-4">
+                                        <div class="product product-7 text-center">
+                                            <figure class="product-media">
+                                                <span class="product-label label-top">Top</span>
+                                                <a href="{% url 'shared:product' %}">
+                                                    <img src="{% static 'images/products/product-11.jpg' %}" alt="Product image" class="product-image">
+                                                </a>
+                                                <div class="product-action-vertical">
+                                                    <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                                                    <a href="../../assets/popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
+                                                    <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
+                                                </div><!-- End .product-action-vertical -->
+                                                <div class="product-action">
+                                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                                </div><!-- End .product-action -->
+                                            </figure><!-- End .product-media -->
+                                            <div class="product-body">
+                                                <div class="product-cat"><a href="#">Shoes</a></div>
+                                                <h3 class="product-title"><a href="{% url 'shared:product' %}">Light brown studded Wide fit wedges</a></h3>
+                                                <div class="product-price">$110.00</div>
+                                                <div class="ratings-container">
+                                                    <div class="ratings">
+                                                        <div class="ratings-val" style="width: 80%;"></div>
+                                                    </div>
+                                                    <span class="ratings-text">( 1 Reviews )</span>
+                                                </div>
+                                                <div class="product-nav product-nav-thumbs">
+                                                    <a href="#" class="active">
+                                                        <img src="{% static 'images/products/product-11-thumb.jpg' %}" alt="product desc">
+                                                    </a>
+                                                    <a href="#">
+                                                        <img src="{% static 'images/products/product-11-2-thumb.jpg' %}" alt="product desc">
+                                                    </a>
+                                                    <a href="#">
+                                                        <img src="{% static 'images/products/product-11-3-thumb.jpg' %}" alt="product desc">
+                                                    </a>
+                                                </div><!-- End .product-nav -->
+                                            </div><!-- End .product-body -->
+                                        </div><!-- End .product -->
+                                    </div>
 
-                				<button type="submit" class="btn btn-outline-primary-2 btn-minwidth-sm">
-                					<span>SUBMIT</span>
-            						<i class="icon-long-arrow-right"></i>
-                				</button>
-                			</form><!-- End .contact-form -->
-                		</div><!-- End .col-lg-6 -->
+                                    <div class="col-6 col-md-4 col-lg-4">
+                                        <div class="product product-7 text-center">
+                                            <figure class="product-media">
+                                                <a href="{% url 'shared:product' %}">
+                                                    <img src="{% static 'images/products/product-10.jpg' %}" alt="Product image" class="product-image">
+                                                </a>
+                                                <div class="product-action-vertical">
+                                                    <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                                                    <a href="../../assets/popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
+                                                    <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
+                                                </div><!-- End .product-action-vertical -->
+                                                <div class="product-action">
+                                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                                </div><!-- End .product-action -->
+                                            </figure><!-- End .product-media -->
+                                            <div class="product-body">
+                                                <div class="product-cat"><a href="#">Jumpers</a></div>
+                                                <h3 class="product-title"><a href="{% url 'shared:product' %}">Yellow button front tea top</a></h3>
+                                                <div class="product-price">$56.00</div>
+                                                <div class="ratings-container">
+                                                    <div class="ratings">
+                                                        <div class="ratings-val" style="width: 0%;"></div>
+                                                    </div>
+                                                    <span class="ratings-text">( 0 Reviews )</span>
+                                                </div>
+                                            </div><!-- End .product-body -->
+                                        </div><!-- End .product -->
+                                    </div>
+
+                                    <div class="col-6 col-md-4 col-lg-4">
+                                        <div class="product product-7 text-center">
+                                            <figure class="product-media">
+                                                <a href="{% url 'shared:product' %}">
+                                                    <img src="{% static 'images/products/product-12.jpg' %}" alt="Product image" class="product-image">
+                                                </a>
+                                                <div class="product-action-vertical">
+                                                    <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                                                    <a href="../../assets/popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
+                                                    <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
+                                                </div><!-- End .product-action-vertical -->
+                                                <div class="product-action">
+                                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                                </div><!-- End .product-action -->
+                                            </figure><!-- End .product-media -->
+                                            <div class="product-body">
+                                                <div class="product-cat"><a href="#">Bags</a></div>
+                                                <h3 class="product-title"><a href="{% url 'shared:product' %}">Black soft RI weekend travel bag</a></h3>
+                                                <div class="product-price">$68.00</div>
+                                                <div class="ratings-container">
+                                                    <div class="ratings">
+                                                        <div class="ratings-val" style="width: 0%;"></div>
+                                                    </div>
+                                                    <span class="ratings-text">( 0 Reviews )</span>
+                                                </div>
+                                            </div><!-- End .product-body -->
+                                        </div><!-- End .product -->
+                                    </div>
+                                </div><!-- End .row -->
+                            </div><!-- End .products -->
+
+                			<nav aria-label="Page navigation">
+							    <ul class="pagination justify-content-center">
+							        <li class="page-item disabled">
+							            <a class="page-link page-link-prev" href="#" aria-label="Previous" tabindex="-1" aria-disabled="true">
+							                <span aria-hidden="true"><i class="icon-long-arrow-left"></i></span>Prev
+							            </a>
+							        </li>
+							        <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+							        <li class="page-item"><a class="page-link" href="#">2</a></li>
+							        <li class="page-item"><a class="page-link" href="#">3</a></li>
+							        <li class="page-item-total">of 6</li>
+							        <li class="page-item">
+							            <a class="page-link page-link-next" href="#" aria-label="Next">
+							                Next <span aria-hidden="true"><i class="icon-long-arrow-right"></i></span>
+							            </a>
+							        </li>
+							    </ul>
+							</nav>
+                		</div><!-- End .col-lg-9 -->
+
+                		<aside class="col-lg-3 order-lg-first">
+                			<div class="sidebar sidebar-shop">
+                				<div class="widget widget-clean">
+                					<label>Filters:</label>
+                					<a href="#" class="sidebar-filter-clear">Clean All</a>
+                				</div><!-- End .widget widget-clean -->
+
+                				<div class="widget widget-collapsible">
+    								<h3 class="widget-title">
+									    <a data-toggle="collapse" href="#widget-1" role="button" aria-expanded="true" aria-controls="widget-1">Category</a>
+									</h3><!-- End .widget-title -->
+									<div class="collapse show" id="widget-1">
+										<div class="widget-body">
+											<div class="filter-items filter-items-count">
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="cat-1">
+														<label class="custom-control-label" for="cat-1">Dresses</label>
+													</div>
+													<span class="item-count">3</span>
+												</div>
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="cat-2">
+														<label class="custom-control-label" for="cat-2">T-shirts</label>
+													</div>
+													<span class="item-count">0</span>
+												</div>
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="cat-3">
+														<label class="custom-control-label" for="cat-3">Bags</label>
+													</div>
+													<span class="item-count">4</span>
+												</div>
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="cat-4">
+														<label class="custom-control-label" for="cat-4">Jackets</label>
+													</div>
+													<span class="item-count">2</span>
+												</div>
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="cat-5">
+														<label class="custom-control-label" for="cat-5">Shoes</label>
+													</div>
+													<span class="item-count">2</span>
+												</div>
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="cat-6">
+														<label class="custom-control-label" for="cat-6">Jumpers</label>
+													</div>
+													<span class="item-count">1</span>
+												</div>
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="cat-7">
+														<label class="custom-control-label" for="cat-7">Jeans</label>
+													</div>
+													<span class="item-count">1</span>
+												</div>
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="cat-8">
+														<label class="custom-control-label" for="cat-8">Sportwear</label>
+													</div>
+													<span class="item-count">0</span>
+												</div>
+											</div><!-- End .filter-items -->
+										</div><!-- End .widget-body -->
+									</div><!-- End .collapse -->
+        						</div><!-- End .widget -->
+
+        						<div class="widget widget-collapsible">
+    								<h3 class="widget-title">
+									    <a data-toggle="collapse" href="#widget-2" role="button" aria-expanded="true" aria-controls="widget-2">Size</a>
+									</h3><!-- End .widget-title -->
+									<div class="collapse show" id="widget-2">
+										<div class="widget-body">
+											<div class="filter-items">
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="size-1">
+														<label class="custom-control-label" for="size-1">XS</label>
+													</div>
+												</div>
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="size-2">
+														<label class="custom-control-label" for="size-2">S</label>
+													</div>
+												</div>
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" checked id="size-3">
+														<label class="custom-control-label" for="size-3">M</label>
+													</div>
+												</div>
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" checked id="size-4">
+														<label class="custom-control-label" for="size-4">L</label>
+													</div>
+												</div>
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="size-5">
+														<label class="custom-control-label" for="size-5">XL</label>
+													</div>
+												</div>
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="size-6">
+														<label class="custom-control-label" for="size-6">XXL</label>
+													</div>
+												</div>
+											</div><!-- End .filter-items -->
+										</div><!-- End .widget-body -->
+									</div><!-- End .collapse -->
+        						</div><!-- End .widget -->
+
+        						<div class="widget widget-collapsible">
+    								<h3 class="widget-title">
+									    <a data-toggle="collapse" href="#widget-3" role="button" aria-expanded="true" aria-controls="widget-3">Colour</a>
+									</h3><!-- End .widget-title -->
+									<div class="collapse show" id="widget-3">
+										<div class="widget-body">
+											<div class="filter-colors">
+												<a href="#" style="background: #b87145;"><span class="sr-only">Color Name</span></a>
+												<a href="#" style="background: #f0c04a;"><span class="sr-only">Color Name</span></a>
+												<a href="#" style="background: #333333;"><span class="sr-only">Color Name</span></a>
+												<a href="#" class="selected" style="background: #cc3333;"><span class="sr-only">Color Name</span></a>
+												<a href="#" style="background: #3399cc;"><span class="sr-only">Color Name</span></a>
+												<a href="#" style="background: #669933;"><span class="sr-only">Color Name</span></a>
+												<a href="#" style="background: #f2719c;"><span class="sr-only">Color Name</span></a>
+												<a href="#" style="background: #ebebeb;"><span class="sr-only">Color Name</span></a>
+											</div><!-- End .filter-colors -->
+										</div><!-- End .widget-body -->
+									</div><!-- End .collapse -->
+        						</div><!-- End .widget -->
+
+        						<div class="widget widget-collapsible">
+    								<h3 class="widget-title">
+									    <a data-toggle="collapse" href="#widget-4" role="button" aria-expanded="true" aria-controls="widget-4">Brand</a>
+									</h3><!-- End .widget-title -->
+									<div class="collapse show" id="widget-4">
+										<div class="widget-body">
+											<div class="filter-items">
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="brand-1">
+														<label class="custom-control-label" for="brand-1">Next</label>
+													</div>
+												</div>
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="brand-2">
+														<label class="custom-control-label" for="brand-2">River Island</label>
+													</div>
+												</div>
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="brand-3">
+														<label class="custom-control-label" for="brand-3">Geox</label>
+													</div>
+												</div>
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="brand-4">
+														<label class="custom-control-label" for="brand-4">New Balance</label>
+													</div>
+												</div>
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="brand-5">
+														<label class="custom-control-label" for="brand-5">UGG</label>
+													</div>
+												</div>
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="brand-6">
+														<label class="custom-control-label" for="brand-6">F&amp;F</label>
+													</div>
+												</div>
+												<div class="filter-item">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input" id="brand-7">
+														<label class="custom-control-label" for="brand-7">Nike</label>
+													</div>
+												</div>
+											</div><!-- End .filter-items -->
+										</div><!-- End .widget-body -->
+									</div><!-- End .collapse -->
+        						</div><!-- End .widget -->
+
+        						<div class="widget widget-collapsible">
+    								<h3 class="widget-title">
+									    <a data-toggle="collapse" href="#widget-5" role="button" aria-expanded="true" aria-controls="widget-5">Price</a>
+									</h3><!-- End .widget-title -->
+									<div class="collapse show" id="widget-5">
+										<div class="widget-body">
+                                            <div class="filter-price">
+                                                <div class="filter-price-text">
+                                                    Price Range:
+                                                    <span id="filter-price-range"></span>
+                                                </div><!-- End .filter-price-text -->
+                                                <div id="price-slider"></div><!-- End #price-slider -->
+                                            </div><!-- End .filter-price -->
+										</div><!-- End .widget-body -->
+									</div><!-- End .collapse -->
+        						</div><!-- End .widget -->
+                			</div><!-- End .sidebar sidebar-shop -->
+                		</aside><!-- End .col-lg-3 -->
                 	</div><!-- End .row -->
-
-                	<hr class="mt-4 mb-5">
-
-                	<div class="stores mb-4 mb-lg-5">
-	                	<h2 class="title text-center mb-3">Our Stores</h2><!-- End .title text-center mb-2 -->
-
-	                	<div class="row">
-	                		<div class="col-lg-6">
-	                			<div class="store">
-	                				<div class="row">
-	                					<div class="col-sm-5 col-xl-6">
-	                						<figure class="store-media mb-2 mb-lg-0">
-	                							<img src="{% static 'images/stores/img-1.jpg' %}" alt="image">
-	                						</figure><!-- End .store-media -->
-	                					</div><!-- End .col-xl-6 -->
-	                					<div class="col-sm-7 col-xl-6">
-	                						<div class="store-content">
-	                							<h3 class="store-title">Wall Street Plaza</h3><!-- End .store-title -->
-	                							<address>88 Pine St, New York, NY 10005, USA</address>
-	                							<div><a href="tel:#">+1 987-876-6543</a></div>
-
-	                							<h4 class="store-subtitle">Store Hours:</h4><!-- End .store-subtitle -->
-                								<div>Monday - Saturday 11am to 7pm</div>
-                								<div>Sunday 11am to 6pm</div>
-
-                								<a href="#" class="btn btn-link" target="_blank"><span>View Map</span><i class="icon-long-arrow-right"></i></a>
-	                						</div><!-- End .store-content -->
-	                					</div><!-- End .col-xl-6 -->
-	                				</div><!-- End .row -->
-	                			</div><!-- End .store -->
-	                		</div><!-- End .col-lg-6 -->
-
-	                		<div class="col-lg-6">
-	                			<div class="store">
-	                				<div class="row">
-	                					<div class="col-sm-5 col-xl-6">
-	                						<figure class="store-media mb-2 mb-lg-0">
-	                							<img src="{% static 'images/stores/img-2.jpg' %}" alt="image">
-	                						</figure><!-- End .store-media -->
-	                					</div><!-- End .col-xl-6 -->
-
-	                					<div class="col-sm-7 col-xl-6">
-	                						<div class="store-content">
-	                							<h3 class="store-title">One New York Plaza</h3><!-- End .store-title -->
-	                							<address>88 Pine St, New York, NY 10005, USA</address>
-	                							<div><a href="tel:#">+1 987-876-6543</a></div>
-
-	                							<h4 class="store-subtitle">Store Hours:</h4><!-- End .store-subtitle -->
-												<div>Monday - Friday 9am to 8pm</div>
-												<div>Saturday - 9am to 2pm</div>
-												<div>Sunday - Closed</div>
-
-                								<a href="#" class="btn btn-link" target="_blank"><span>View Map</span><i class="icon-long-arrow-right"></i></a>
-	                						</div><!-- End .store-content -->
-	                					</div><!-- End .col-xl-6 -->
-	                				</div><!-- End .row -->
-	                			</div><!-- End .store -->
-	                		</div><!-- End .col-lg-6 -->
-	                	</div><!-- End .row -->
-                	</div><!-- End .stores -->
                 </div><!-- End .container -->
-            	<div id="map"></div><!-- End #map -->
             </div><!-- End .page-content -->
         </main><!-- End .main -->
 
         <footer class="footer">
-        	<div class="footer-middle border-0">
+        	<div class="footer-middle">
 	            <div class="container">
 	            	<div class="row">
 	            		<div class="col-sm-6 col-lg-3">
 	            			<div class="widget widget-about">
 	            				<img src="{% static 'images/logo.png' %}" class="footer-logo" alt="Footer Logo" width="105" height="25">
 	            				<p>Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. </p>
-
 	            				<div class="social-icons">
-                                    <a href="#" class="social-icon" target="_blank" title="Facebook"><i class="icon-facebook-f"></i></a>
-                                    <a href="#" class="social-icon" target="_blank" title="Twitter"><i class="icon-twitter"></i></a>
-                                    <a href="#" class="social-icon" target="_blank" title="Instagram"><i class="icon-instagram"></i></a>
-                                    <a href="#" class="social-icon" target="_blank" title="Youtube"><i class="icon-youtube"></i></a>
-                                    <a href="#" class="social-icon" target="_blank" title="Pinterest"><i class="icon-pinterest"></i></a>
-                                </div><!-- End .soial-icons -->
+	            					<a href="#" class="social-icon" target="_blank" title="Facebook"><i class="icon-facebook-f"></i></a>
+	            					<a href="#" class="social-icon" target="_blank" title="Twitter"><i class="icon-twitter"></i></a>
+	            					<a href="#" class="social-icon" target="_blank" title="Instagram"><i class="icon-instagram"></i></a>
+	            					<a href="#" class="social-icon" target="_blank" title="Youtube"><i class="icon-youtube"></i></a>
+	            					<a href="#" class="social-icon" target="_blank" title="Pinterest"><i class="icon-pinterest"></i></a>
+	            				</div><!-- End .soial-icons -->
 	            			</div><!-- End .widget about-widget -->
-	            		</div><!-- End .col-sm-6 col-lg-3 -->
+	            		</div>
 
 	            		<div class="col-sm-6 col-lg-3">
 	            			<div class="widget">
-	            				<h4 class="widget-title">Useful Links</h4><!-- End .widget-title -->
-
+	            				<h4 class="widget-title">Useful Links</h4>
 	            				<ul class="widget-list">
-	            					<li><a href="about.html">About Molla</a></li>
+	            					<li><a href="../shared/about.html">About Molla</a></li>
 	            					<li><a href="#">How to shop on Molla</a></li>
 	            					<li><a href="#">FAQ</a></li>
-	            					<li><a href="contact.html">Contact us</a></li>
-	            					<li><a href="login.html">Log in</a></li>
-	            				</ul><!-- End .widget-list -->
-	            			</div><!-- End .widget -->
-	            		</div><!-- End .col-sm-6 col-lg-3 -->
+	            					<li><a href="../users/contact.html">Contact us</a></li>
+	            					<li><a href="../users/login.html">Log in</a></li>
+	            				</ul>
+	            			</div>
+	            		</div>
 
 	            		<div class="col-sm-6 col-lg-3">
 	            			<div class="widget">
-	            				<h4 class="widget-title">Customer Service</h4><!-- End .widget-title -->
-
+	            				<h4 class="widget-title">Customer Service</h4>
 	            				<ul class="widget-list">
 	            					<li><a href="#">Payment Methods</a></li>
 	            					<li><a href="#">Money-back guarantee!</a></li>
@@ -767,30 +1227,29 @@
 	            					<li><a href="#">Shipping</a></li>
 	            					<li><a href="#">Terms and conditions</a></li>
 	            					<li><a href="#">Privacy Policy</a></li>
-	            				</ul><!-- End .widget-list -->
-	            			</div><!-- End .widget -->
-	            		</div><!-- End .col-sm-6 col-lg-3 -->
+	            				</ul>
+	            			</div>
+	            		</div>
 
 	            		<div class="col-sm-6 col-lg-3">
 	            			<div class="widget">
-	            				<h4 class="widget-title">My Account</h4><!-- End .widget-title -->
-
+	            				<h4 class="widget-title">My Account</h4>
 	            				<ul class="widget-list">
 	            					<li><a href="#">Sign In</a></li>
 	            					<li><a href="cart.html">View Cart</a></li>
 	            					<li><a href="#">My Wishlist</a></li>
 	            					<li><a href="#">Track My Order</a></li>
 	            					<li><a href="#">Help</a></li>
-	            				</ul><!-- End .widget-list -->
-	            			</div><!-- End .widget -->
-	            		</div><!-- End .col-sm-6 col-lg-3 -->
+	            				</ul>
+	            			</div>
+	            		</div>
 	            	</div><!-- End .row -->
 	            </div><!-- End .container -->
 	        </div><!-- End .footer-middle -->
 
 	        <div class="footer-bottom">
 	        	<div class="container">
-	        		<p class="footer-copyright">Copyright © 2019 Molla Store. All Rights Reserved.</p><!-- End .footer-copyright -->
+	        		<p class="footer-copyright">Copyright &copy; 2019 Molla Store. All Rights Reserved.</p>
 	        		<figure class="footer-payments">
 	        			<img src="{% static 'images/payments.png' %}" alt="Payment methods" width="272" height="20">
 	        		</figure><!-- End .footer-payments -->
@@ -798,6 +1257,7 @@
 	        </div><!-- End .footer-bottom -->
         </footer><!-- End .footer -->
     </div><!-- End .page-wrapper -->
+
     <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
 
     <!-- Mobile Menu -->
@@ -816,8 +1276,7 @@
             <nav class="mobile-nav">
                 <ul class="mobile-menu">
                     <li class="active">
-                        <a href="index.html">Home</a>
-
+                        <a href="{% url 'shared:home' %}">Home</a>
                         <ul>
                             <li><a href="index-1.html">01 - furniture store</a></li>
                             <li><a href="index-2.html">02 - furniture store</a></li>
@@ -846,11 +1305,11 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="category.html">Shop</a>
+                        <a href="{% url 'shared:category' %}">Shop</a>
                         <ul>
                             <li><a href="category-list.html">Shop List</a></li>
                             <li><a href="category-2cols.html">Shop Grid 2 Columns</a></li>
-                            <li><a href="category.html">Shop Grid 3 Columns</a></li>
+                            <li><a href="{% url 'shared:category' %}">Shop Grid 3 Columns</a></li>
                             <li><a href="category-4cols.html">Shop Grid 4 Columns</a></li>
                             <li><a href="category-boxed.html"><span>Shop Boxed No Sidebar<span class="tip tip-hot">Hot</span></span></a></li>
                             <li><a href="category-fullwidth.html">Shop Fullwidth No Sidebar</a></li>
@@ -858,19 +1317,19 @@
                             <li><a href="product-category-fullwidth.html"><span>Product Category Fullwidth<span class="tip tip-new">New</span></span></a></li>
                             <li><a href="cart.html">Cart</a></li>
                             <li><a href="checkout.html">Checkout</a></li>
-                            <li><a href="wishlist.html">Wishlist</a></li>
+                            <li><a href="../products/wishlist.html">Wishlist</a></li>
                             <li><a href="#">Lookbook</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="product.html" class="sf-with-ul">Product</a>
+                        <a href="{% url 'shared:product' %}" class="sf-with-ul">Product</a>
                         <ul>
-                            <li><a href="product.html">Default</a></li>
+                            <li><a href="{% url 'shared:product' %}">Default</a></li>
                             <li><a href="product-centered.html">Centered</a></li>
                             <li><a href="product-extended.html"><span>Extended Info<span class="tip tip-new">New</span></span></a></li>
                             <li><a href="product-gallery.html">Gallery</a></li>
                             <li><a href="product-sticky.html">Sticky Info</a></li>
-                            <li><a href="product-lists.html">Boxed With Sidebar</a></li>
+                            <li><a href="../products/product-lists.html">Boxed With Sidebar</a></li>
                             <li><a href="product-fullwidth.html">Full Width</a></li>
                             <li><a href="product-masonry.html">Masonry Sticky Info</a></li>
                         </ul>
@@ -879,33 +1338,30 @@
                         <a href="#">Pages</a>
                         <ul>
                             <li>
-                                <a href="about.html">About</a>
-
+                                <a href="../shared/about.html">About</a>
                                 <ul>
-                                    <li><a href="about.html">About 01</a></li>
+                                    <li><a href="../shared/about.html">About 01</a></li>
                                     <li><a href="about-2.html">About 02</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="contact.html">Contact</a>
-
+                                <a href="../users/contact.html">Contact</a>
                                 <ul>
-                                    <li><a href="contact.html">Contact 01</a></li>
+                                    <li><a href="../users/contact.html">Contact 01</a></li>
                                     <li><a href="contact-2.html">Contact 02</a></li>
                                 </ul>
                             </li>
-                            <li><a href="login.html">Login</a></li>
-                            <li><a href="faq.html">FAQs</a></li>
-                            <li><a href="404.html">Error 404</a></li>
-                            <li><a href="coming-soon.html">Coming Soon</a></li>
+                            <li><a href="../users/login.html">Login</a></li>
+                            <li><a href="../users/faq.html">FAQs</a></li>
+                            <li><a href="../shared/404.html">Error 404</a></li>
+                            <li><a href="../users/coming-soon.html">Coming Soon</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="blog.html">Blog</a>
-
+                        <a href="{% url 'shared:blog' %}">Blog</a>
                         <ul>
-                            <li><a href="blog.html">Classic</a></li>
-                            <li><a href="blog-list.html">Listing</a></li>
+                            <li><a href="{% url 'shared:blog' %}">Classic</a></li>
+                            <li><a href="../blogs/blog-list.html">Listing</a></li>
                             <li>
                                 <a href="#">Grid</a>
                                 <ul>
@@ -920,7 +1376,7 @@
                                 <ul>
                                     <li><a href="blog-masonry-2cols.html">Masonry 2 columns</a></li>
                                     <li><a href="blog-masonry-3cols.html">Masonry 3 columns</a></li>
-                                    <li><a href="blog-masonry-4cols.html">Masonry 4 columns</a></li>
+                                    <li><a href="../blogs/blog-masonry-4cols.html">Masonry 4 columns</a></li>
                                     <li><a href="blog-masonry-sidebar.html">Masonry sidebar</a></li>
                                 </ul>
                             </li>
@@ -947,8 +1403,8 @@
                             <li><a href="elements-products.html">Products</a></li>
                             <li><a href="elements-typography.html">Typography</a></li>
                             <li><a href="elements-titles.html">Titles</a></li>
-                            <li><a href="elements-banners.html">Banners</a></li>
-                            <li><a href="elements-product-category.html">Product Category</a></li>
+                            <li><a href="elements.html">Banners</a></li>
+                            <li><a href="elements-product-{% url 'shared:category' %}">Product Category</a></li>
                             <li><a href="elements-video-banners.html">Video Banners</a></li>
                             <li><a href="elements-buttons.html">Buttons</a></li>
                             <li><a href="elements-accordions.html">Accordions</a></li>
@@ -980,7 +1436,6 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true"><i class="icon-close"></i></span>
                     </button>
-
                     <div class="form-box">
                         <div class="form-tab">
                             <ul class="nav nav-pills nav-fill" role="tablist">
@@ -997,24 +1452,20 @@
                                         <div class="form-group">
                                             <label for="singin-email">Username or email address *</label>
                                             <input type="text" class="form-control" id="singin-email" name="singin-email" required>
-                                        </div><!-- End .form-group -->
-
+                                        </div>
                                         <div class="form-group">
                                             <label for="singin-password">Password *</label>
                                             <input type="password" class="form-control" id="singin-password" name="singin-password" required>
-                                        </div><!-- End .form-group -->
-
+                                        </div>
                                         <div class="form-footer">
                                             <button type="submit" class="btn btn-outline-primary-2">
                                                 <span>LOG IN</span>
                                                 <i class="icon-long-arrow-right"></i>
                                             </button>
-
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input" id="signin-remember">
                                                 <label class="custom-control-label" for="signin-remember">Remember Me</label>
-                                            </div><!-- End .custom-checkbox -->
-
+                                            </div>
                                             <a href="#" class="forgot-link">Forgot Your Password?</a>
                                         </div><!-- End .form-footer -->
                                     </form>
@@ -1023,17 +1474,15 @@
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <a href="#" class="btn btn-login btn-g">
-                                                    <i class="icon-google"></i>
-                                                    Login With Google
+                                                    <i class="icon-google"></i>Login With Google
                                                 </a>
-                                            </div><!-- End .col-6 -->
+                                            </div>
                                             <div class="col-sm-6">
                                                 <a href="#" class="btn btn-login btn-f">
-                                                    <i class="icon-facebook-f"></i>
-                                                    Login With Facebook
+                                                    <i class="icon-facebook-f"></i>Login With Facebook
                                                 </a>
-                                            </div><!-- End .col-6 -->
-                                        </div><!-- End .row -->
+                                            </div>
+                                        </div>
                                     </div><!-- End .form-choice -->
                                 </div><!-- .End .tab-pane -->
                                 <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
@@ -1041,23 +1490,20 @@
                                         <div class="form-group">
                                             <label for="register-email">Your email address *</label>
                                             <input type="email" class="form-control" id="register-email" name="register-email" required>
-                                        </div><!-- End .form-group -->
-
+                                        </div>
                                         <div class="form-group">
                                             <label for="register-password">Password *</label>
                                             <input type="password" class="form-control" id="register-password" name="register-password" required>
-                                        </div><!-- End .form-group -->
-
+                                        </div>
                                         <div class="form-footer">
                                             <button type="submit" class="btn btn-outline-primary-2">
                                                 <span>SIGN UP</span>
                                                 <i class="icon-long-arrow-right"></i>
                                             </button>
-
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input" id="register-policy" required>
                                                 <label class="custom-control-label" for="register-policy">I agree to the <a href="#">privacy policy</a> *</label>
-                                            </div><!-- End .custom-checkbox -->
+                                            </div>
                                         </div><!-- End .form-footer -->
                                     </form>
                                     <div class="form-choice">
@@ -1065,17 +1511,15 @@
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <a href="#" class="btn btn-login btn-g">
-                                                    <i class="icon-google"></i>
-                                                    Login With Google
+                                                    <i class="icon-google"></i>Login With Google
                                                 </a>
-                                            </div><!-- End .col-6 -->
+                                            </div>
                                             <div class="col-sm-6">
-                                                <a href="#" class="btn btn-login  btn-f">
-                                                    <i class="icon-facebook-f"></i>
-                                                    Login With Facebook
+                                                <a href="#" class="btn btn-login btn-f">
+                                                    <i class="icon-facebook-f"></i>Login With Facebook
                                                 </a>
-                                            </div><!-- End .col-6 -->
-                                        </div><!-- End .row -->
+                                            </div>
+                                        </div>
                                     </div><!-- End .form-choice -->
                                 </div><!-- .End .tab-pane -->
                             </div><!-- End .tab-content -->
@@ -1086,9 +1530,6 @@
         </div><!-- End .modal-dialog -->
     </div><!-- End .modal -->
 
-    <!-- Google Map -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDc3LRykbLB-y8MuomRUIY0qH5S6xgBLX4"></script>
-
     <!-- Plugins JS File -->
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
@@ -1096,9 +1537,13 @@
     <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
     <script src="{% static 'js/superfish.min.js' %}"></script>
     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/wNumb.js' %}"></script>
+    <script src="{% static 'js/bootstrap-input-spinner.js' %}"></script>
     <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/nouislider.min.js' %}"></script>
     <!-- Main JS File -->
     <script src="{% static 'js/main.js' %}"></script>
 </body>
 
+<!-- molla/{% url 'shared:category' %}  22 Nov 2019 10:02:52 GMT -->
 </html>
