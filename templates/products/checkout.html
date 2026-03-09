@@ -1,0 +1,159 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block title %}{% endblock %}
+{% block content %}
+    <main class="main">
+        <div class="page-header text-center" style="background-image: url('{% static 'assets/images/page-header-bg.jpg' %}')">
+            <div class="container">
+                <h1 class="page-title">Checkout<span>Shop</span></h1>
+            </div><!-- End .container -->
+        </div><!-- End .page-header -->
+        <nav aria-label="breadcrumb" class="breadcrumb-nav">
+            <div class="container">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Shop</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+                </ol>
+            </div><!-- End .container -->
+        </nav><!-- End .breadcrumb-nav -->
+
+        <div class="page-content">
+            <div class="checkout">
+                <div class="container">
+                    <div class="checkout-discount">
+                        <form action="#">
+                            <input type="text" class="form-control" required id="checkout-discount-input">
+                            <label for="checkout-discount-input" class="text-truncate">Have a coupon? <span>Click here to enter your code</span></label>
+                        </form>
+                    </div><!-- End .checkout-discount -->
+                    <form action="{% url 'basket:checkout' %}" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-lg-9">
+                            <h2 class="checkout-title">Billing Details</h2>
+
+                            {% if messages %}
+                            {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }} mb-3">{{ message }}</div>
+                            {% endfor %}
+                            {% endif %}
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>First Name *</label>
+                                    <input name="first_name" type="text" class="form-control" required
+                                           value="{{ request.user.first_name }}">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Last Name *</label>
+                                    <input name="last_name" type="text" class="form-control" required
+                                           value="{{ request.user.last_name }}">
+                                </div>
+                            </div>
+
+                            <label>Company Name (Optional)</label>
+                            <input name="company_name" type="text" class="form-control">
+
+                            <label>Country *</label>
+                            <input name="country" type="text" class="form-control" required>
+
+                            <label>Street address *</label>
+                            <input name="address" type="text" class="form-control"
+                                   placeholder="House number and Street name" required>
+                            <input name="apartment" type="text" class="form-control"
+                                   placeholder="Appartments, suite, unit etc ...">
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Town / City *</label>
+                                    <input name="city" type="text" class="form-control" required>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>State / County *</label>
+                                    <input name="state" type="text" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Postcode / ZIP *</label>
+                                    <input name="postcode" type="text" class="form-control" required>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Phone *</label>
+                                    <input name="phone" type="tel" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <label>Email address *</label>
+                            <input name="email" type="email" class="form-control" required
+                                   value="{{ request.user.email }}">
+
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="checkout-create-acc">
+                                <label class="custom-control-label" for="checkout-create-acc">Create an account?</label>
+                            </div>
+
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="checkout-diff-address">
+                                <label class="custom-control-label" for="checkout-diff-address">Ship to a different address?</label>
+                            </div>
+
+                            <label>Order notes (optional)</label>
+                            <textarea name="notes" class="form-control" cols="30" rows="4"
+                                      placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
+                        </div>
+
+        <!-- Order Summary -->
+        <aside class="col-lg-3">
+            <div class="summary">
+                <h3 class="summary-title">Your Order</h3>
+
+                <table class="table table-summary">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in basket_items %}
+                        <tr>
+                            <td><a href="#">{{ item.product.title }}</a></td>
+                            <td>${{ item.item_total|floatformat:2 }}</td>
+                        </tr>
+                        {% endfor %}
+                        <tr class="summary-subtotal">
+                            <td>Subtotal:</td>
+                            <td>${{ total|floatformat:2 }}</td>
+                        </tr>
+                        <tr>
+                            <td>Shipping:</td>
+                            <td>Free shipping</td>
+                        </tr>
+                        <tr class="summary-total">
+                            <td>Total:</td>
+                            <td>${{ total|floatformat:2 }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- payment accordion stays exactly as it is -->
+                <div class="accordion-summary" id="accordion-payment">
+                    ... keep your existing payment accordion here ...
+                </div>
+
+                <button type="submit" class="btn btn-outline-primary-2 btn-order btn-block">
+                    <span class="btn-text">Place Order</span>
+                    <span class="btn-hover-text">Proceed to Checkout</span>
+                </button>
+            </div>
+        </aside>
+    </div>
+</form>
+                </div><!-- End .container -->
+            </div><!-- End .checkout -->
+        </div><!-- End .page-content -->
+    </main><!-- End .main -->
+{% endblock %}

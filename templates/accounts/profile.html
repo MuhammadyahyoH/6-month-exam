@@ -1,0 +1,15 @@
+{% extends 'layout/base.html' %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<main class="main">
+    <div class="container" style="padding: 60px 0;">
+        <h2 class="title mb-3">My Profile</h2>
+        <p><strong>Username:</strong> {{ user.username }}</p>
+        <p><strong>Name:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <a href="{% url 'accounts:logout' %}" class="btn btn-outline-primary-2 mt-3">
+            <span>LOGOUT</span><i class="icon-long-arrow-right"></i>
+        </a>
+    </div>
+</main>
+{% endblock %}

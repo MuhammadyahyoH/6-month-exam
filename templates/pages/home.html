@@ -1,0 +1,414 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans 'Home' %} - Molla{% endblock %}
+
+{% block content %}
+<main class="main">
+    <div class="intro-section bg-lighter pt-5 pb-6">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- Slider -->
+                    <div class="intro-slider intro-slider-1 owl-carousel owl-simple owl-light owl-nav-inside"
+                         data-toggle="owl" data-owl-options='{"nav": false, "responsive": {"768": {"nav": true}}}'>
+                        {% for slide in sliders %}
+                        <div class="intro-slide">
+                            <figure class="slide-image">
+                                <picture>
+                                    {% if slide.image_small %}
+                                    <source media="(max-width: 480px)" srcset="{{ slide.image_small.url }}">
+                                    {% endif %}
+                                    <img src="{{ slide.image.url }}" alt="{{ slide.title }}">
+                                </picture>
+                            </figure>
+                            <div class="intro-content">
+                                <h3 class="intro-subtitle">{{ slide.subtitle }}</h3>
+                                <h1 class="intro-title">{{ slide.title }}</h1>
+                                <a href="{{ slide.url }}" class="btn btn-outline-white">
+                                    <span>{% trans 'SHOP NOW' %}</span><i class="icon-long-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        {% empty %}
+                        <div class="intro-slide">
+                            <figure class="slide-image">
+                                <img src="{% static 'assets/images/slider/slide-1.jpg' %}" alt="Slide">
+                            </figure>
+                            <div class="intro-content">
+                                <h3 class="intro-subtitle">{% trans 'Topsale Collection' %}</h3>
+                                <h1 class="intro-title">{% trans 'Living Room' %}<br>{% trans 'Furniture' %}</h1>
+                                <a href="{% url 'products:list' %}" class="btn btn-outline-white">
+                                    <span>{% trans 'SHOP NOW' %}</span><i class="icon-long-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="intro-banners">
+                        <div class="row row-sm">
+                            {% for banner in intro_banners %}
+                            <div class="col-md-6 col-lg-12">
+                                <div class="banner banner-display {% if forloop.last %}mb-0{% endif %}">
+                                    <a href="{{ banner.url|default:'#' }}">
+                                        <img src="{{ banner.image.url }}" alt="{{ banner.title }}">
+                                    </a>
+                                    <div class="banner-content">
+                                        {% if banner.subtitle %}
+                                        <h4 class="banner-subtitle text-darkwhite"><a href="#">{{ banner.subtitle }}</a></h4>
+                                        {% endif %}
+                                        <h3 class="banner-title text-white"><a href="#">{{ banner.title }}</a></h3>
+                                        <a href="{{ banner.url|default:'#' }}" class="btn btn-outline-white banner-link">
+                                            {{ banner.text }}<i class="icon-long-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-6"></div>
+
+            <!-- Brands -->
+            <div class="owl-carousel owl-simple" data-toggle="owl" data-owl-options='{"nav": false, "dots": false, "margin": 30, "loop": false, "responsive": {"0": {"items":2}, "420": {"items":3}, "600": {"items":4}, "900": {"items":5}, "1024": {"items":6}}}'>
+                <a href="#" class="brand"><img src="{% static 'assets/images/brands/1.png' %}" alt="Brand"></a>
+                <a href="#" class="brand"><img src="{% static 'assets/images/brands/2.png' %}" alt="Brand"></a>
+                <a href="#" class="brand"><img src="{% static 'assets/images/brands/3.png' %}" alt="Brand"></a>
+                <a href="#" class="brand"><img src="{% static 'assets/images/brands/4.png' %}" alt="Brand"></a>
+                <a href="#" class="brand"><img src="{% static 'assets/images/brands/5.png' %}" alt="Brand"></a>
+                <a href="#" class="brand"><img src="{% static 'assets/images/brands/6.png' %}" alt="Brand"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-6"></div>
+
+    <!-- Trendy Products -->
+    <div class="container">
+        <div class="heading heading-center mb-3">
+            <h2 class="title-lg">{% trans 'Trendy Products' %}</h2>
+            <ul class="nav nav-pills justify-content-center" role="tablist">
+                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#trendy-all-tab" role="tab">{% trans 'All' %}</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#trendy-fur-tab" role="tab">{% trans 'Furniture' %}</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#trendy-decor-tab" role="tab">{% trans 'Decor' %}</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#trendy-light-tab" role="tab">{% trans 'Lighting' %}</a></li>
+            </ul>
+        </div>
+
+        <div class="tab-content tab-content-carousel">
+
+            <!-- ALL -->
+            <div class="tab-pane p-0 fade show active" id="trendy-all-tab" role="tabpanel">
+                <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl"
+                    data-owl-options='{"nav": false, "dots": false, "loop": false, "margin": 20, "responsive": {"0": {"items":2}, "768": {"items":3}, "992": {"items":4}, "1200": {"items":4, "nav": true, "dots": false}}}'>
+                    {% for product in all_products %}
+                    <div class="product product-11 text-center">
+                        <figure class="product-media">
+                            {% if product.is_new %}<span class="product-label label-new">{% trans 'NEW' %}</span>{% endif %}
+                            {% if product.is_discount %}<span class="product-label label-sale">{{ product.discount }}% {% trans 'OFF' %}</span>{% endif %}
+                            <a href="{% url 'products:detail' pk=product.id %}">
+                                {% if product.image %}
+                                    <img src="{{ product.image.url }}" alt="{{ product.title }}" class="product-image">
+                                {% endif %}
+                            </a>
+                            <div class="product-action-vertical">
+                                <a href="{% url 'products:wishlist_add' product_id=product.id %}" class="btn-product-icon btn-wishlist"><span>{% trans 'add to wishlist' %}</span></a>
+                            </div>
+                        </figure>
+                        <div class="product-body">
+                            <h3 class="product-title"><a href="{% url 'products:detail' pk=product.id %}">{{ product.title }}</a></h3>
+                            <div class="product-price">
+                                {% if product.is_discount %}
+                                    <span class="new-price">${{ product.price }}</span>
+                                {% else %}
+                                    ${{ product.price }}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="product-action">
+                            <a href="{% url 'basket:add' product_id=product.id %}" class="btn-product btn-cart"><span>{% trans 'add to cart' %}</span></a>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <p class="text-center text-muted w-100">{% trans 'No products yet. Add some in the admin panel.' %}</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- FURNITURE -->
+            <div class="tab-pane p-0 fade" id="trendy-fur-tab" role="tabpanel">
+                <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl"
+                    data-owl-options='{"nav": false, "dots": false, "loop": false, "margin": 20, "responsive": {"0": {"items":2}, "768": {"items":3}, "992": {"items":4}, "1200": {"items":4, "nav": true, "dots": false}}}'>
+                    {% for product in furniture_products %}
+                    <div class="product product-11 text-center">
+                        <figure class="product-media">
+                            {% if product.is_new %}<span class="product-label label-new">{% trans 'NEW' %}</span>{% endif %}
+                            {% if product.is_discount %}<span class="product-label label-sale">{{ product.discount }}% {% trans 'OFF' %}</span>{% endif %}
+                            <a href="{% url 'products:detail' pk=product.id %}">
+                                {% if product.image %}<img src="{{ product.image.url }}" alt="{{ product.title }}" class="product-image">{% endif %}
+                            </a>
+                            <div class="product-action-vertical">
+                                <a href="{% url 'products:wishlist_add' product_id=product.id %}" class="btn-product-icon btn-wishlist"><span>{% trans 'add to wishlist' %}</span></a>
+                            </div>
+                        </figure>
+                        <div class="product-body">
+                            <h3 class="product-title"><a href="{% url 'products:detail' pk=product.id %}">{{ product.title }}</a></h3>
+                            <div class="product-price">${{ product.price }}</div>
+                        </div>
+                        <div class="product-action">
+                            <a href="{% url 'basket:add' product_id=product.id %}" class="btn-product btn-cart"><span>{% trans 'add to cart' %}</span></a>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <p class="text-center text-muted w-100">{% trans 'No furniture products yet.' %}</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- DECOR -->
+            <div class="tab-pane p-0 fade" id="trendy-decor-tab" role="tabpanel">
+                <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl"
+                    data-owl-options='{"nav": false, "dots": false, "loop": false, "margin": 20, "responsive": {"0": {"items":2}, "768": {"items":3}, "992": {"items":4}, "1200": {"items":4, "nav": true, "dots": false}}}'>
+                    {% for product in decor_products %}
+                    <div class="product product-11 text-center">
+                        <figure class="product-media">
+                            {% if product.is_new %}<span class="product-label label-new">{% trans 'NEW' %}</span>{% endif %}
+                            {% if product.is_discount %}<span class="product-label label-sale">{{ product.discount }}% {% trans 'OFF' %}</span>{% endif %}
+                            <a href="{% url 'products:detail' pk=product.id %}">
+                                {% if product.image %}<img src="{{ product.image.url }}" alt="{{ product.title }}" class="product-image">{% endif %}
+                            </a>
+                            <div class="product-action-vertical">
+                                <a href="{% url 'products:wishlist_add' product_id=product.id %}" class="btn-product-icon btn-wishlist"><span>{% trans 'add to wishlist' %}</span></a>
+                            </div>
+                        </figure>
+                        <div class="product-body">
+                            <h3 class="product-title"><a href="{% url 'products:detail' pk=product.id %}">{{ product.title }}</a></h3>
+                            <div class="product-price">${{ product.price }}</div>
+                        </div>
+                        <div class="product-action">
+                            <a href="{% url 'basket:add' product_id=product.id %}" class="btn-product btn-cart"><span>{% trans 'add to cart' %}</span></a>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <p class="text-center text-muted w-100">{% trans 'No decor products yet.' %}</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- LIGHTING -->
+            <div class="tab-pane p-0 fade" id="trendy-light-tab" role="tabpanel">
+                <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl"
+                    data-owl-options='{"nav": false, "dots": false, "loop": false, "margin": 20, "responsive": {"0": {"items":2}, "768": {"items":3}, "992": {"items":4}, "1200": {"items":4, "nav": true, "dots": false}}}'>
+                    {% for product in lighting_products %}
+                    <div class="product product-11 text-center">
+                        <figure class="product-media">
+                            {% if product.is_new %}<span class="product-label label-new">{% trans 'NEW' %}</span>{% endif %}
+                            {% if product.is_discount %}<span class="product-label label-sale">{{ product.discount }}% {% trans 'OFF' %}</span>{% endif %}
+                            <a href="{% url 'products:detail' pk=product.id %}">
+                                {% if product.image %}<img src="{{ product.image.url }}" alt="{{ product.title }}" class="product-image">{% endif %}
+                            </a>
+                            <div class="product-action-vertical">
+                                <a href="{% url 'products:wishlist_add' product_id=product.id %}" class="btn-product-icon btn-wishlist"><span>{% trans 'add to wishlist' %}</span></a>
+                            </div>
+                        </figure>
+                        <div class="product-body">
+                            <h3 class="product-title"><a href="{% url 'products:detail' pk=product.id %}">{{ product.title }}</a></h3>
+                            <div class="product-price">${{ product.price }}</div>
+                        </div>
+                        <div class="product-action">
+                            <a href="{% url 'basket:add' product_id=product.id %}" class="btn-product btn-cart"><span>{% trans 'add to cart' %}</span></a>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <p class="text-center text-muted w-100">{% trans 'No lighting products yet.' %}</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Shop by Categories -->
+    <div class="container categories pt-6">
+        <h2 class="title-lg text-center mb-4">{% trans 'Shop by Categories' %}</h2>
+        <div class="row">
+
+            {% with banners|slice:":4" as cat_banners %}
+
+            {% with cat_banners.0 as b %}
+            {% if b %}
+            <div class="col-6 col-lg-4">
+                <div class="banner banner-display banner-link-anim">
+                    <a href="{{ b.url|default:'#' }}">
+                        <img src="{{ b.image.url }}" alt="{{ b.title }}">
+                    </a>
+                    <div class="banner-content banner-content-center">
+                        <h3 class="banner-title text-white"><a href="{{ b.url|default:'#' }}">{{ b.title }}</a></h3>
+                        <a href="{{ b.url|default:'#' }}" class="btn btn-outline-white banner-link">
+                            {% trans 'Shop Now' %}<i class="icon-long-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endwith %}
+
+            <div class="col-sm-12 col-lg-4 banners-sm">
+                <div class="row">
+                    {% with cat_banners.1 as b %}
+                    {% if b %}
+                    <div class="banner banner-display banner-link-anim col-lg-12 col-6">
+                        <a href="{{ b.url|default:'#' }}">
+                            <img src="{{ b.image.url }}" alt="{{ b.title }}">
+                        </a>
+                        <div class="banner-content banner-content-center">
+                            <h3 class="banner-title text-white"><a href="{{ b.url|default:'#' }}">{{ b.title }}</a></h3>
+                            <a href="{{ b.url|default:'#' }}" class="btn btn-outline-white banner-link">
+                                {% trans 'Shop Now' %}<i class="icon-long-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endwith %}
+
+                    {% with cat_banners.2 as b %}
+                    {% if b %}
+                    <div class="banner banner-display banner-link-anim col-lg-12 col-6">
+                        <a href="{{ b.url|default:'#' }}">
+                            <img src="{{ b.image.url }}" alt="{{ b.title }}">
+                        </a>
+                        <div class="banner-content banner-content-center">
+                            <h3 class="banner-title text-white"><a href="{{ b.url|default:'#' }}">{{ b.title }}</a></h3>
+                            <a href="{{ b.url|default:'#' }}" class="btn btn-outline-white banner-link">
+                                {% trans 'Shop Now' %}<i class="icon-long-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endwith %}
+                </div>
+            </div>
+
+            {% with cat_banners.3 as b %}
+            {% if b %}
+            <div class="col-6 col-lg-4 order-lg-last">
+                <div class="banner banner-display banner-link-anim">
+                    <a href="{{ b.url|default:'#' }}">
+                        <img src="{{ b.image.url }}" alt="{{ b.title }}">
+                    </a>
+                    <div class="banner-content banner-content-center">
+                        <h3 class="banner-title text-white"><a href="{{ b.url|default:'#' }}">{{ b.title }}</a></h3>
+                        <a href="{{ b.url|default:'#' }}" class="btn btn-outline-white banner-link">
+                            {% trans 'Shop Now' %}<i class="icon-long-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endwith %}
+
+            {% endwith %}
+        </div>
+    </div>
+
+    <div class="mb-5"></div>
+    <div class="mb-5"></div>
+
+    <!-- Icon Boxes -->
+    <div class="container">
+        <hr>
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-sm-6">
+                <div class="icon-box icon-box-card text-center">
+                    <span class="icon-box-icon"><i class="icon-rocket"></i></span>
+                    <div class="icon-box-content">
+                        <h3 class="icon-box-title">{% trans 'Payment & Delivery' %}</h3>
+                        <p>{% trans 'Free shipping for orders over $50' %}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="icon-box icon-box-card text-center">
+                    <span class="icon-box-icon"><i class="icon-rotate-left"></i></span>
+                    <div class="icon-box-content">
+                        <h3 class="icon-box-title">{% trans 'Return & Refund' %}</h3>
+                        <p>{% trans 'Free 100% money back guarantee' %}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="icon-box icon-box-card text-center">
+                    <span class="icon-box-icon"><i class="icon-life-ring"></i></span>
+                    <div class="icon-box-content">
+                        <h3 class="icon-box-title">{% trans 'Quality Support' %}</h3>
+                        <p>{% trans 'Always online feedback 24/7' %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mb-2"></div>
+    </div>
+
+    <!-- Blog Posts -->
+    <div class="blog-posts pt-7 pb-7" style="background-color: #fafafa;">
+        <div class="container">
+            <h2 class="title-lg text-center mb-3 mb-md-4">{% trans 'From Our Blog' %}</h2>
+            <div class="owl-carousel owl-simple carousel-with-shadow" data-toggle="owl" data-owl-options='{"nav": false, "dots": true, "items": 3, "margin": 20, "loop": false, "responsive": {"0": {"items":1}, "600": {"items":2}, "992": {"items":3}}}'>
+                <article class="entry entry-display">
+                    <figure class="entry-media"><a href="{% url 'blogs:list' %}"><img src="{% static 'assets/images/blog/home/post-1.jpg' %}" alt="image desc"></a></figure>
+                    <div class="entry-body pb-4 text-center">
+                        <div class="entry-meta"><a href="#">Nov 22, 2018</a>, 0 Comments</div>
+                        <h3 class="entry-title"><a href="{% url 'blogs:list' %}">Sed adipiscing ornare.</a></h3>
+                        <div class="entry-content"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p><a href="{% url 'blogs:list' %}" class="read-more">{% trans 'Read More' %}</a></div>
+                    </div>
+                </article>
+                <article class="entry entry-display">
+                    <figure class="entry-media"><a href="{% url 'blogs:list' %}"><img src="{% static 'assets/images/blog/home/post-2.jpg' %}" alt="image desc"></a></figure>
+                    <div class="entry-body pb-4 text-center">
+                        <div class="entry-meta"><a href="#">Dec 12, 2018</a>, 0 Comments</div>
+                        <h3 class="entry-title"><a href="{% url 'blogs:list' %}">Fusce lacinia arcuet nulla.</a></h3>
+                        <div class="entry-content"><p>Sed pretium, ligula sollicitudin laoreet viverra tortor.</p><a href="{% url 'blogs:list' %}" class="read-more">{% trans 'Read More' %}</a></div>
+                    </div>
+                </article>
+                <article class="entry entry-display">
+                    <figure class="entry-media"><a href="{% url 'blogs:list' %}"><img src="{% static 'assets/images/blog/home/post-3.jpg' %}" alt="image desc"></a></figure>
+                    <div class="entry-body pb-4 text-center">
+                        <div class="entry-meta"><a href="#">Dec 19, 2018</a>, 2 Comments</div>
+                        <h3 class="entry-title"><a href="{% url 'blogs:list' %}">Quisque volutpat mattis eros.</a></h3>
+                        <div class="entry-content"><p>Suspendisse potenti. Sed egestas ante et vulputate volutpat.</p><a href="{% url 'blogs:list' %}" class="read-more">{% trans 'Read More' %}</a></div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <div class="more-container text-center mb-0 mt-3">
+            <a href="{% url 'blogs:list' %}" class="btn btn-outline-darker btn-more"><span>{% trans 'View more articles' %}</span><i class="icon-long-arrow-right"></i></a>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta cta-display bg-image pt-4 pb-4" style="background-image: url({% static 'assets/images/backgrounds/cta/bg-6.jpg' %});">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-9 col-xl-8">
+                    <div class="row no-gutters flex-column flex-sm-row align-items-sm-center">
+                        <div class="col">
+                            <h3 class="cta-title text-white">{% trans 'Sign Up & Get 10% Off' %}</h3>
+                            <p class="cta-desc text-white">{% trans 'Molla presents the best in interior design' %}</p>
+                        </div>
+                        <div class="col-auto">
+                            <a href="#signin-modal" data-toggle="modal" class="btn btn-outline-white"><span>{% trans 'SIGN UP' %}</span><i class="icon-long-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+{% endblock %}

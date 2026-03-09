@@ -1,0 +1,22 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block title %}Order Placed!{% endblock %}
+{% block content %}
+<main class="main">
+    <div class="page-header text-center" style="background-image: url('{% static 'assets/images/page-header-bg.jpg' %}')">
+        <div class="container">
+            <h1 class="page-title">Order Placed!<span>Shop</span></h1>
+        </div>
+    </div>
+
+    <div class="container text-center" style="padding: 80px 0;">
+        <i class="icon-check-circle" style="font-size: 64px; color: #c96;"></i>
+        <h2 class="mt-4">Your Order Has Been Placed!</h2>
+        <p class="mt-2 text-muted">Thank you for your order. We will contact you shortly.</p>
+        <a href="{% url 'products:list' %}" class="btn btn-outline-primary-2 mt-4">
+            <span>Continue Shopping</span>
+            <i class="icon-long-arrow-right"></i>
+        </a>
+    </div>
+</main>
+{% endblock %}

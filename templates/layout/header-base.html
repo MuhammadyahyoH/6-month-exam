@@ -1,0 +1,206 @@
+{% load static %}
+{% load i18n %}
+{% load my_tags %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-primary" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+<header class="header">
+    <div class="header-top">
+        <div class="container">
+            <div class="header-left">
+                <div class="header-dropdown">
+                    <a href="#">Usd</a>
+                    <div class="header-menu">
+                        <ul>
+                            <li><a href="#">Eur</a></li>
+                            <li><a href="#">Usd</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="header-dropdown">
+                    {% get_current_language as current_lang %}
+                    {% get_available_languages as all_langs %}
+                    <a href="#">{{ current_lang|upper }}</a>
+                    <div class="header-menu">
+                        <ul>
+                            {% for lang_code, lang_name in all_langs %}
+                            <li>
+                                <form action="{% url 'set_language' %}" method="post">
+                                    {% csrf_token %}
+                                    <input name="next" type="hidden" value="{{ request.path }}">
+                                    <input name="language" type="hidden" value="{{ lang_code }}">
+                                    <button type="submit" style="background:none; border:none; cursor:pointer; padding:0;">
+                                        {{ lang_name }}
+                                    </button>
+                                </form>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <ul class="top-menu">
+                    <li>
+                        <a href="#">Links</a>
+                        <ul>
+                            <li><a href="tel:#"><i class="icon-phone"></i>{% trans 'Call: +0123 456 789' %}</a></li>
+                            <li>
+                                <a href="{% url 'products:wishlist' %}">
+                                    <i class="icon-heart-o"></i>{% trans 'My Wishlist' %} <span>(3)</span>
+                                </a>
+                            </li>
+                            <li><a href="{% url 'pages:about' %}">{% trans 'About Us' %}</a></li>
+                            <li><a href="{% url 'pages:contact' %}">{% trans 'Contact Us' %}</a></li>
+                            {% if user.is_authenticated %}
+                                <li><a href="{% url 'accounts:profile' %}"><i class="icon-user"></i>{{ user.first_name|default:user.username }}</a></li>
+                                <li><a href="{% url 'accounts:logout' %}"><i class="icon-sign-out"></i>{% trans 'Logout' %}</a></li>
+                            {% else %}
+                                <li><a href="#signin-modal" data-toggle="modal"><i class="icon-user"></i>{% trans 'Login' %}</a></li>
+                            {% endif %}
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-middle sticky-header">
+        <div class="container">
+            <div class="header-left">
+                <button class="mobile-menu-toggler">
+                    <span class="sr-only">{% trans 'Toggle mobile menu' %}</span>
+                    <i class="icon-bars"></i>
+                </button>
+
+                <a href="{% url 'pages:home' %}" class="logo">
+                    <img src="{% static 'assets/images/logo.png' %}" alt="Molla Logo" width="105" height="25">
+                </a>
+
+                <nav class="main-nav">
+                    <ul class="menu sf-arrows">
+                        {% url 'pages:home' as home_url %}
+                        {% url 'pages:contact' as contact_url %}
+                        {% url 'blogs:list' as blogs_url %}
+                        {% url 'pages:about' as about_url %}
+                        {% url 'products:list' as products_url %}
+                        <li class="{% if request.path == home_url %}megamenu-container active{% endif %}">
+                            <a href="{% url 'pages:home' %}">{% trans 'Home' %}</a>
+                        </li>
+                        <li class="{% if request.path == products_url %}megamenu-container active{% endif %}">
+                            <a href="{% url 'products:list' %}">{% trans 'Products' %}</a>
+                        </li>
+                        <li class="{% if request.path == blogs_url %}megamenu-container active{% endif %}">
+                            <a href="{% url 'blogs:list' %}">{% trans 'Blogs' %}</a>
+                        </li>
+                        <li class="{% if request.path == about_url %}megamenu-container active{% endif %}">
+                            <a href="{% url 'pages:about' %}">{% trans 'About' %}</a>
+                        </li>
+                        <li class="{% if request.path == contact_url %}megamenu-container active{% endif %}">
+                            <a href="{% url 'pages:contact' %}">{% trans 'Contact' %}</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="header-right">
+                <div class="header-search">
+                    <a href="#" class="search-toggle" role="button" title="{% trans 'Search' %}"><i class="icon-search"></i></a>
+                    <form action="{% url 'products:list' %}" method="get">
+                        <div class="header-search-wrapper">
+                            <label for="q" class="sr-only">{% trans 'Search' %}</label>
+                            <input value="{{ request.GET.q }}"
+                                   type="search" class="form-control" name="q" id="q"
+                                   placeholder="{% trans 'Search in...' %}" required>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="dropdown compare-dropdown">
+                    <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-display="static"
+                       title="{% trans 'Compare Products' %}" aria-label="{% trans 'Compare Products' %}">
+                        <i class="icon-random"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <ul class="compare-products">
+                            <li class="compare-product">
+                                <a href="#" class="btn-remove" title="{% trans 'Remove Product' %}"><i class="icon-close"></i></a>
+                                <h4 class="compare-product-title"><a href="#">Blue Night Dress</a></h4>
+                            </li>
+                            <li class="compare-product">
+                                <a href="#" class="btn-remove" title="{% trans 'Remove Product' %}"><i class="icon-close"></i></a>
+                                <h4 class="compare-product-title"><a href="#">White Long Skirt</a></h4>
+                            </li>
+                        </ul>
+                        <div class="compare-actions">
+                            <a href="#" class="action-link">{% trans 'Clear All' %}</a>
+                            <a href="#" class="btn btn-outline-primary-2">
+                                <span>{% trans 'Compare' %}</span><i class="icon-long-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown cart-dropdown">
+                    <a href="{% url 'basket:detail' %}" class="dropdown-toggle" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                        <i class="icon-shopping-cart"></i>
+                        <span class="cart-count">{{ basket|length }}</span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <div class="dropdown-cart-products">
+                            {% for item in basket_items %}
+                                <div class="product">
+                                    <div class="product-cart-details">
+                                        <h4 class="product-title">
+                                            <a href="{% url 'products:detail' pk=item.product.id %}">
+                                                {{ item.product.title }}
+                                            </a>
+                                        </h4>
+                                        <span class="cart-product-info">
+                                            <span class="cart-product-qty">{{ item.quantity }}</span>
+                                            x ${{ item.product.price }}
+                                        </span>
+                                    </div>
+                                    <figure class="product-image-container">
+                                        <a href="{% url 'products:detail' pk=item.product.id %}" class="product-image">
+                                            <img src="{{ item.product.image.url }}" alt="product">
+                                        </a>
+                                    </figure>
+                                    <a href="{% url 'basket:remove' product_id=item.product.id %}"
+                                       class="btn-remove" title="{% trans 'Remove Product' %}">
+                                        <i class="icon-close"></i>
+                                    </a>
+                                </div>
+                            {% empty %}
+                                <p class="text-center py-2">{% trans 'Your cart is empty' %}</p>
+                            {% endfor %}
+                        </div>
+
+                        <div class="dropdown-cart-total">
+                            <span>{% trans 'Total' %}</span>
+                            <span class="cart-total-price">${{ total|default:"0.00" }}</span>
+                        </div>
+
+                        <div class="dropdown-cart-action">
+                            <a href="{% url 'basket:detail' %}" class="btn btn-primary">{% trans 'View Cart' %}</a>
+                            <a href="{% url 'basket:checkout' %}" class="btn btn-outline-primary-2">
+                                <span>{% trans 'Checkout' %}</span><i class="icon-long-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

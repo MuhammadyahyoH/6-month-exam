@@ -1,0 +1,384 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% load my_tags %}
+
+{% block title %}{{ product.title }}{% endblock %}
+
+{% block content %}
+<main class="main">
+
+    <!-- Page Header -->
+    <div class="page-header text-center"
+         style="background-image: url('{% static 'assets/images/page-header-bg.jpg' %}')">
+        <div class="container">
+            <h1 class="page-title">{{ product.title }}<span>Product</span></h1>
+        </div>
+    </div><!-- End .page-header -->
+
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'pages:home' %}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'products:list' %}">Shop</a></li>
+                {% for cat in product.categories.all %}
+                    <li class="breadcrumb-item"><a href="#">{{ cat.title }}</a></li>
+                {% endfor %}
+                <li class="breadcrumb-item active" aria-current="page">{{ product.title }}</li>
+            </ol>
+        </div>
+    </nav><!-- End .breadcrumb-nav -->
+
+    <div class="page-content">
+        <div class="container">
+            <div class="product-details-top">
+                <div class="row">
+
+                    <!-- Product Images -->
+                    <div class="col-md-6">
+                        <div class="product-gallery product-gallery-vertical">
+                            <div class="row">
+
+                                <!-- Main image carousel -->
+                                <figure class="product-main-image">
+                                    {% if product.is_new %}
+                                        <span class="product-label label-new">New</span>
+                                    {% endif %}
+                                    {% if product.is_discount %}
+                                        <span class="product-label label-sale">-{{ product.discount }}%</span>
+                                    {% endif %}
+
+                                    {% if product.image %}
+                                        <img id="product-zoom"
+                                             src="{{ product.image.url }}"
+                                             data-zoom-image="{{ product.image.url }}"
+                                             alt="{{ product.title }}">
+                                    {% endif %}
+
+                                    <a href="#" id="btn-product-gallery" class="btn-product-gallery">
+                                        <i class="icon-arrows"></i>
+                                    </a>
+                                </figure><!-- End .product-main-image -->
+
+                                <!-- Thumbnail gallery from ProductImageModel -->
+                                <div id="product-zoom-gallery" class="product-image-gallery">
+                                    {% if product.image %}
+                                        <a class="product-gallery-item active"
+                                           href="#"
+                                           data-image="{{ product.image.url }}"
+                                           data-zoom-image="{{ product.image.url }}">
+                                            <img src="{{ product.image.url }}" alt="{{ product.title }}">
+                                        </a>
+                                    {% endif %}
+
+                                    {% for img in images %}
+                                        <a class="product-gallery-item"
+                                           href="#"
+                                           data-image="{{ img.image.url }}"
+                                           data-zoom-image="{{ img.image.url }}">
+                                            <img src="{{ img.image.url }}" alt="{{ product.title }}">
+                                        </a>
+                                    {% endfor %}
+                                </div><!-- End .product-image-gallery -->
+
+                            </div><!-- End .row -->
+                        </div><!-- End .product-gallery -->
+                    </div><!-- End .col-md-6 -->
+
+                    <!-- Product Info -->
+                    <div class="col-md-6">
+                        <div class="product-details">
+
+                            <!-- Categories -->
+                            <div class="product-cat">
+                                {% for cat in product.categories.all %}
+                                    <a href="#">{{ cat.title }}</a>{% if not forloop.last %}, {% endif %}
+                                {% endfor %}
+                            </div><!-- End .product-cat -->
+
+                            <h1 class="product-title">{{ product.title }}</h1>
+
+                            <!-- Price -->
+                            <div class="product-price">
+                                {% if product.is_discount %}
+                                    {% with discounted=product.price|discount_price:product.discount %}
+                                        <span class="new-price">${{ discounted }}</span>
+                                        <span class="old-price">${{ product.price }}</span>
+                                    {% endwith %}
+                                {% else %}
+                                    <span>${{ product.price }}</span>
+                                {% endif %}
+                            </div><!-- End .product-price -->
+
+                            <!-- Ratings (static for now) -->
+                            <div class="ratings-container">
+                                <div class="ratings">
+                                    <div class="ratings-val" style="width: 60%;"></div>
+                                </div>
+                                <a class="ratings-text" href="#product-review-link" id="review-link">( 2 Reviews )</a>
+                            </div><!-- End .ratings-container -->
+
+                            <div class="product-content">
+                                <p>{{ product.short_description }}</p>
+                            </div><!-- End .product-content -->
+
+                            <!-- Color variants -->
+                            {% if colors %}
+                            <div class="details-filter-row details-row-size">
+                                <label>Color:</label>
+                                <div class="product-nav product-nav-dots">
+                                    {% for color_title, color_code in colors %}
+                                        <a href="#" style="background: #{{ color_code }};"><span class="sr-only">{{ color_title }}</span></a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endif %}
+
+                            <!-- Size variants -->
+                            {% if sizes %}
+                            <div class="details-filter-row details-row-size">
+                                <label for="size">Size:</label>
+                                <div class="select-custom">
+                                    <select name="size" id="size" class="form-control">
+                                        <option value="">Select a size</option>
+                                        {% for size in sizes %}
+                                            <option value="{{ size }}">{{ size }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            {% endif %}
+
+                            <!-- Quantity + Add to Cart -->
+                            <div class="details-filter-row details-row-size">
+                                <label for="qty">Qty:</label>
+                                <div class="product-details-quantity">
+                                    <input type="number" id="qty" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
+                                </div>
+                            </div><!-- End .details-filter-row -->
+
+                            <div class="product-details-action">
+                                {% in_basket request product.id as is_true %}
+                                {% if is_true %}
+                                    <a href="{% url 'basket:remove' product_id=product.id %}"
+                                       class="btn-product btn-cart">
+                                        <span>Remove from cart</span>
+                                    </a>
+                                {% else %}
+                                    <a href="{% url 'basket:add' product_id=product.id %}"
+                                       class="btn-product btn-cart">
+                                        <span>Add to cart</span>
+                                    </a>
+                                {% endif %}
+
+                                <!-- Wishlist is OUTSIDE the if/else, always visible -->
+                                <div class="details-action-wrapper">
+                                    <a href="{% url 'products:wishlist_add' product_id=product.id %}"
+                                       class="btn-product btn-wishlist">
+                                        <span>Add to Wishlist</span>
+                                    </a>
+                                </div>
+                            </div><!-- End .product-details-action -->
+
+                            <!-- Meta info -->
+                            <div class="product-details-footer">
+                                <div class="product-cat">
+                                    <span>Category:</span>
+                                    {% for cat in product.categories.all %}
+                                        <a href="#">{{ cat.title }}</a>{% if not forloop.last %},{% endif %}
+                                    {% endfor %}
+                                </div>
+
+                                {% if product.brand %}
+                                    <div class="product-cat">
+                                        <span>Brand:</span>
+                                        <a href="#">{{ product.brand.name }}</a>
+                                    </div>
+                                {% endif %}
+
+                                <div class="social-icons social-icons-sm">
+                                    <span class="social-label">Share:</span>
+                                    <a href="#" class="social-icon" title="Facebook" target="_blank"><i class="icon-facebook-f"></i></a>
+                                    <a href="#" class="social-icon" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>
+                                    <a href="#" class="social-icon" title="Instagram" target="_blank"><i class="icon-instagram"></i></a>
+                                    <a href="#" class="social-icon" title="Pinterest" target="_blank"><i class="icon-pinterest"></i></a>
+                                </div>
+                            </div><!-- End .product-details-footer -->
+
+                        </div><!-- End .product-details -->
+                    </div><!-- End .col-md-6 -->
+
+                </div><!-- End .row -->
+            </div><!-- End .product-details-top -->
+
+            <!-- Product Tabs: Description / Reviews -->
+            <div class="product-details-tab">
+                <ul class="nav nav-pills justify-content-center" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="product-desc-link" data-toggle="tab"
+                           href="#product-desc-tab" role="tab" aria-controls="product-desc-tab" aria-selected="true">Description</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="product-review-link" data-toggle="tab"
+                           href="#product-review-tab" role="tab" aria-controls="product-review-tab" aria-selected="false">Reviews (2)</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+
+                    <!-- Description Tab -->
+                    <div class="tab-pane fade show active" id="product-desc-tab" role="tabpanel" aria-labelledby="product-desc-link">
+                        <div class="product-desc-content">
+                            <p>{{ product.long_description }}</p>
+                        </div>
+                    </div><!-- End .tab-pane -->
+
+                    <!-- Reviews Tab -->
+                    <div class="tab-pane fade" id="product-review-tab" role="tabpanel" aria-labelledby="product-review-link">
+                        <div class="reviews">
+                            <h3>Reviews (2)</h3>
+                            <div class="review">
+                                <div class="row no-gutters">
+                                    <div class="col-auto">
+                                        <h4><a href="#">Samanta J.</a></h4>
+                                        <div class="ratings-container">
+                                            <div class="ratings">
+                                                <div class="ratings-val" style="width: 80%;"></div>
+                                            </div>
+                                        </div>
+                                        <span class="review-date">6 days ago</span>
+                                    </div>
+                                    <div class="col">
+                                        <h4>Good, perfect size</h4>
+                                        <div class="review-content">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- End .review -->
+
+                            <!-- Leave a Review -->
+                            <div class="review-form-wrapper">
+                                <h3>Add a Review</h3>
+                                <p class="text-muted">Your email address will not be published. Required fields are marked *</p>
+                                <form action="#" method="post">
+                                    {% csrf_token %}
+                                    <div class="rating-form">
+                                        <label for="rating">Your rating *</label>
+                                        <span class="rating-stars">
+                                            <a class="star-1" href="#">1</a>
+                                            <a class="star-2" href="#">2</a>
+                                            <a class="star-3" href="#">3</a>
+                                            <a class="star-4" href="#">4</a>
+                                            <a class="star-5" href="#">5</a>
+                                        </span>
+                                        <select name="rating" id="rating" class="form-control" required>
+                                            <option value="">Rate…</option>
+                                            <option value="5">Perfect</option>
+                                            <option value="4">Good</option>
+                                            <option value="3">Average</option>
+                                            <option value="2">Not that bad</option>
+                                            <option value="1">Very bad</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="review-text">Your review *</label>
+                                        <textarea id="review-text" name="content" cols="30" rows="6" class="form-control" required></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="review-name">Name *</label>
+                                        <input type="text" id="review-name" name="name" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="review-email">Email *</label>
+                                        <input type="email" id="review-email" name="email" class="form-control" required>
+                                    </div>
+                                    <div class="form-footer">
+                                        <button type="submit" class="btn btn-primary btn-rounded btn-shadow">
+                                            Submit Review
+                                        </button>
+                                    </div>
+                                </form>
+                            </div><!-- End .review-form-wrapper -->
+                        </div><!-- End .reviews -->
+                    </div><!-- End .tab-pane -->
+
+                </div><!-- End .tab-content -->
+            </div><!-- End .product-details-tab -->
+
+            <!-- Related Products -->
+            <h2 class="title text-center mb-4">You May Also Like</h2>
+            <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl"
+                data-owl-options='{
+                    "nav": false,
+                    "dots": true,
+                    "margin": 20,
+                    "loop": false,
+                    "responsive": {
+                        "0":    {"items": 2},
+                        "480":  {"items": 2},
+                        "768":  {"items": 3},
+                        "992":  {"items": 4},
+                        "1200": {"items": 4, "nav": true, "dots": false}
+                    }
+                }'>
+                {% for related in related_products %}
+                    <div class="product product-7 text-center">
+                        <figure class="product-media">
+                            {% if related.is_new %}<span class="product-label label-new">New</span>{% endif %}
+                            {% if related.is_discount %}<span class="product-label label-sale">-{{ related.discount }}%</span>{% endif %}
+                            <a href="{% url 'products:detail' pk=related.id %}">
+                                <img src="{{ related.image.url }}" alt="{{ related.title }}" class="product-image">
+                            </a>
+                            <div class="product-action-vertical">
+                                <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                            </div>
+                            {% in_basket request related.id as related_in_basket %}
+                            {% if related_in_basket %}
+                                <div class="product-action">
+                                    <a href="{% url 'basket:remove' product_id=related.id %}" class="btn-product btn-cart">
+                                        <span>Remove from cart</span>
+                                    </a>
+                                </div>
+                            {% else %}
+                                <div class="product-action">
+                                    <a href="{% url 'basket:add' product_id=related.id %}" class="btn-product btn-cart">
+                                        <span>add to cart</span>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        </figure>
+                        <div class="product-body">
+                            <div class="product-cat">
+                                {% for cat in related.categories.all %}
+                                    <a href="#">{{ cat.title }}</a>
+                                {% endfor %}
+                            </div>
+                            <h3 class="product-title">
+                                <a href="{% url 'products:detail' pk=related.id %}">{{ related.title }}</a>
+                            </h3>
+                            <div class="product-price">${{ related.price }}</div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p class="text-center text-muted">No related products found.</p>
+                {% endfor %}
+            </div><!-- End .owl-carousel -->
+
+        </div><!-- End .container -->
+    </div><!-- End .page-content -->
+
+</main><!-- End .main -->
+<script>
+    document.querySelectorAll('.product-gallery-item').forEach(function(item) {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Update main image
+            document.querySelector('#product-zoom').src = this.dataset.image;
+            // Update active state
+            document.querySelectorAll('.product-gallery-item').forEach(i => i.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,81 @@
+{% load static %}
+{% load i18n %}
+
+<footer class="footer">
+    <div class="footer-middle">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="widget widget-about">
+                        <img src="{% static 'assets/images/logo.png' %}" class="footer-logo" alt="Footer Logo" width="105" height="25">
+                        <p>{% trans 'Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.' %}</p>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon" target="_blank" title="Facebook"><i class="icon-facebook-f"></i></a>
+                            <a href="#" class="social-icon" target="_blank" title="Twitter"><i class="icon-twitter"></i></a>
+                            <a href="#" class="social-icon" target="_blank" title="Instagram"><i class="icon-instagram"></i></a>
+                            <a href="#" class="social-icon" target="_blank" title="Youtube"><i class="icon-youtube"></i></a>
+                            <a href="#" class="social-icon" target="_blank" title="Pinterest"><i class="icon-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                    <div class="widget">
+                        <h4 class="widget-title">{% trans 'Useful Links' %}</h4>
+                        <ul class="widget-list">
+                            <li><a href="{% url 'pages:about' %}">{% trans 'About Molla' %}</a></li>
+                            <li><a href="#">{% trans 'How to shop on Molla' %}</a></li>
+                            <li><a href="#">{% trans 'FAQ' %}</a></li>
+                            <li><a href="{% url 'pages:contact' %}">{% trans 'Contact us' %}</a></li>
+                            {% if user.is_authenticated %}
+                                <li><a href="{% url 'accounts:logout' %}">{% trans 'Log out' %}</a></li>
+                            {% else %}
+                                <li><a href="#signin-modal" data-toggle="modal">{% trans 'Log in' %}</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                    <div class="widget">
+                        <h4 class="widget-title">{% trans 'Customer Service' %}</h4>
+                        <ul class="widget-list">
+                            <li><a href="#">{% trans 'Payment Methods' %}</a></li>
+                            <li><a href="#">{% trans 'Money-back guarantee!' %}</a></li>
+                            <li><a href="#">{% trans 'Returns' %}</a></li>
+                            <li><a href="#">{% trans 'Shipping' %}</a></li>
+                            <li><a href="#">{% trans 'Terms and conditions' %}</a></li>
+                            <li><a href="#">{% trans 'Privacy Policy' %}</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                    <div class="widget">
+                        <h4 class="widget-title">{% trans 'My Account' %}</h4>
+                        <ul class="widget-list">
+                            {% if user.is_authenticated %}
+                                <li><a href="{% url 'accounts:profile' %}">{% trans 'My Profile' %}</a></li>
+                            {% else %}
+                                <li><a href="#signin-modal" data-toggle="modal">{% trans 'Sign In' %}</a></li>
+                            {% endif %}
+                            <li><a href="{% url 'basket:detail' %}">{% trans 'View Cart' %}</a></li>
+                            <li><a href="{% url 'products:wishlist' %}">{% trans 'My Wishlist' %}</a></li>
+                            <li><a href="#">{% trans 'Track My Order' %}</a></li>
+                            <li><a href="#">{% trans 'Help' %}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <p class="footer-copyright">{% trans 'Copyright © 2019 Molla Store. All Rights Reserved.' %}</p>
+            <figure class="footer-payments">
+                <img src="{% static 'assets/images/payments.png' %}" alt="{% trans 'Payment methods' %}" width="272" height="20">
+            </figure>
+        </div>
+    </div>
+</footer>

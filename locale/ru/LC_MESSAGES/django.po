@@ -1,0 +1,467 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-09 00:12+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\core\settings.py:119
+msgid "English"
+msgstr ""
+
+#: .\core\settings.py:120
+msgid "Uzbek"
+msgstr ""
+
+#: .\core\settings.py:121
+msgid "Russian"
+msgstr ""
+
+#: .\templates\layout\footer.html:11
+#: .\templates\layout\footer.html:11
+msgid ""
+"Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu "
+"vulputate magna eros eu erat."
+msgstr ""
+"Мы предлагаем качественную мебель и товары для интерьера. "
+"Удовлетворённость наших клиентов — наша главная цель."
+
+#: .\templates\layout\footer.html:24
+msgid "Useful Links"
+msgstr "Полезные ссылки"
+
+#: .\templates\layout\footer.html:26
+msgid "About Molla"
+msgstr "О Molla"
+
+#: .\templates\layout\footer.html:27
+msgid "How to shop on Molla"
+msgstr "Как делать покупки на Molla"
+
+#: .\templates\layout\footer.html:28
+msgid "FAQ"
+msgstr "Часто задаваемые вопросы"
+
+#: .\templates\layout\footer.html:29
+msgid "Contact us"
+msgstr "Связаться с нами"
+
+#: .\templates\layout\footer.html:31
+msgid "Log out"
+msgstr "Выйти"
+
+#: .\templates\layout\footer.html:33
+msgid "Log in"
+msgstr "Войти"
+
+#: .\templates\layout\footer.html:41
+msgid "Customer Service"
+msgstr "Служба поддержки"
+
+#: .\templates\layout\footer.html:43
+msgid "Payment Methods"
+msgstr "Способы оплаты"
+
+#: .\templates\layout\footer.html:44
+msgid "Money-back guarantee!"
+msgstr "Гарантия возврата денег!"
+
+#: .\templates\layout\footer.html:45
+msgid "Returns"
+msgstr "Возврат"
+
+#: .\templates\layout\footer.html:46
+msgid "Shipping"
+msgstr "Доставка"
+
+#: .\templates\layout\footer.html:47
+msgid "Terms and conditions"
+msgstr "Условия и положения"
+
+#: .\templates\layout\footer.html:48
+msgid "Privacy Policy"
+msgstr "Политика конфиденциальности"
+
+#: .\templates\layout\footer.html:55
+msgid "My Account"
+msgstr "Мой аккаунт"
+
+#: .\templates\layout\footer.html:58
+msgid "My Profile"
+msgstr "Мой профиль"
+
+#: .\templates\layout\footer.html:60
+msgid "Sign In"
+msgstr "Войти"
+
+#: .\templates\layout\footer.html:62
+msgid "View Cart"
+msgstr "Корзина"
+
+#: .\templates\layout\footer.html:63
+msgid "My Wishlist"
+msgstr "Список желаний"
+
+#: .\templates\layout\footer.html:64
+msgid "Track My Order"
+msgstr "Отследить заказ"
+
+#: .\templates\layout\footer.html:65
+msgid "Help"
+msgstr "Помощь"
+
+#: .\templates\layout\footer.html:75
+msgid "Copyright © 2019 Molla Store. All Rights Reserved."
+msgstr "Авторское право © 2019 Molla Store. Все права защищены."
+
+#: .\templates\layout\footer.html:77
+msgid "Payment methods"
+msgstr "Способы оплаты"
+
+#: .\templates\layout\header-base.html:55
+msgid "Call: +0123 456 789"
+msgstr "Звонок: +0123 456 789"
+
+#: .\templates\layout\header-base.html:61
+msgid "About Us"
+msgstr "О нас"
+
+#: .\templates\layout\header-base.html:62
+msgid "Contact Us"
+msgstr "Связаться с нами"
+
+#: .\templates\layout\header-base.html:65
+msgid "Logout"
+msgstr "Выйти"
+
+#: .\templates\layout\header-base.html:67
+msgid "Login"
+msgstr "Войти"
+
+#: .\templates\layout\header-base.html:80
+msgid "Toggle mobile menu"
+msgstr "Открыть мобильное меню"
+
+#: .\templates\layout\header-base.html:96
+msgid "Home"
+msgstr "Главная"
+
+#: .\templates\layout\header-base.html:99
+msgid "Products"
+msgstr "Продукты"
+
+#: .\templates\layout\header-base.html:102
+msgid "Blogs"
+msgstr "Блоги"
+
+#: .\templates\layout\header-base.html:105
+msgid "About"
+msgstr "О нас"
+
+#: .\templates\layout\header-base.html:108
+msgid "Contact"
+msgstr "Контакт"
+
+#: .\templates\layout\header-base.html:116
+msgid "Search"
+msgstr "Поиск"
+
+#: .\templates\layout\header-base.html:122
+msgid "Search in..."
+msgstr "Поиск..."
+
+#: .\templates\layout\header-base.html:130
+msgid "Compare Products"
+msgstr "Сравнить товары"
+
+#: .\templates\layout\header-base.html:136
+msgid "Remove Product"
+msgstr "Удалить товар"
+
+#: .\templates\layout\header-base.html:145
+msgid "Clear All"
+msgstr "Очистить всё"
+
+#: .\templates\layout\header-base.html:147
+msgid "Compare"
+msgstr "Сравнить"
+
+#: .\templates\layout\header-base.html:186
+msgid "Your cart is empty"
+msgstr "Ваша корзина пуста"
+
+#: .\templates\layout\header-base.html:191
+msgid "Total"
+msgstr "Итого"
+
+#: .\templates\layout\header-base.html:198
+msgid "Checkout"
+msgstr "Оформить заказ"
+
+#: .\templates\pages\home.html:30
+msgid "SHOP NOW"
+msgstr "КУПИТЬ СЕЙЧАС"
+
+#: .\templates\pages\home.html:40
+msgid "Topsale Collection"
+msgstr "Коллекция бестселлеров"
+
+#: .\templates\pages\home.html:41
+msgid "Living Room"
+msgstr "Гостиная"
+
+#: .\templates\pages\home.html:41
+msgid "Furniture"
+msgstr "Мебель"
+
+#: .\templates\pages\home.html:95
+msgid "Trendy Products"
+msgstr "Популярные товары"
+
+#: .\templates\pages\home.html:97
+msgid "All"
+msgstr "Все"
+
+#: .\templates\pages\home.html:99
+msgid "Decor"
+msgstr "Декор"
+
+#: .\templates\pages\home.html:100
+msgid "Lighting"
+msgstr "Освещение"
+
+#: .\templates\pages\home.html:113
+msgid "NEW"
+msgstr "НОВЫЙ"
+
+#: .\templates\pages\home.html:114
+msgid "OFF"
+msgstr "СКИДКА"
+
+#: .\templates\pages\home.html:121
+msgid "add to wishlist"
+msgstr "В список желаний"
+
+#: .\templates\pages\home.html:135
+msgid "add to cart"
+msgstr "В корзину"
+
+#: .\templates\pages\home.html:139
+msgid "No products yet. Add some in the admin panel."
+msgstr "Товаров пока нет. Добавьте их в панели администратора."
+
+#: .\templates\pages\home.html:169
+msgid "No furniture products yet."
+msgstr "Товаров мебели пока нет."
+
+#: .\templates\pages\home.html:199
+msgid "No decor products yet."
+msgstr "Товаров декора пока нет."
+
+#: .\templates\pages\home.html:229
+msgid "No lighting products yet."
+msgstr "Товаров освещения пока нет."
+
+#: .\templates\pages\home.html:239
+msgid "Shop by Categories"
+msgstr "Покупки по категориям"
+
+#: .\templates\pages\home.html:254
+msgid "Shop Now"
+msgstr "Купить сейчас"
+
+#: .\templates\pages\home.html:331
+msgid "Payment & Delivery"
+msgstr "Оплата и доставка"
+
+#: .\templates\pages\home.html:332
+msgid "Free shipping for orders over $50"
+msgstr "Бесплатная доставка для заказов свыше $50"
+
+#: .\templates\pages\home.html:340
+msgid "Return & Refund"
+msgstr "Возврат и возмещение"
+
+#: .\templates\pages\home.html:341
+msgid "Free 100%% money back guarantee"
+msgstr "100%% гарантия возврата денег"
+
+#: .\templates\pages\home.html:349
+msgid "Quality Support"
+msgstr "Качественная поддержка"
+
+#: .\templates\pages\home.html:350
+msgid "Always online feedback 24/7"
+msgstr "Всегда онлайн обратная связь 24/7"
+
+#: .\templates\pages\home.html:361
+msgid "From Our Blog"
+msgstr "Из нашего блога"
+
+#: .\templates\pages\home.html:368
+msgid "Read More"
+msgstr "Читать далее"
+
+#: .\templates\pages\home.html:390
+msgid "View more articles"
+msgstr "Посмотреть больше статей"
+
+#: .\templates\pages\home.html:401
+msgid "Sign Up & Get 10%% Off"
+msgstr "Зарегистрируйтесь и получите скидку 10%%"
+
+#: .\templates\pages\home.html:402
+msgid "Molla presents the best in interior design"
+msgstr "Molla представляет лучшее в дизайне интерьера"
+
+#: .\templates\pages\home.html:405
+msgid "SIGN UP"
+msgstr "ЗАРЕГИСТРИРОВАТЬСЯ"
+
+#: .\templates\products\cart.html:5
+msgid "Shopping Cart"
+msgstr "Корзина"
+
+#: .\templates\products\cart.html:12
+msgid "Shop"
+msgstr "Магазин"
+
+#: .\templates\products\cart.html:35
+msgid "Product"
+msgstr "Товар"
+
+#: .\templates\products\cart.html:36
+msgid "Price"
+msgstr "Цена"
+
+#: .\templates\products\cart.html:37
+msgid "Quantity"
+msgstr "Количество"
+
+#: .\templates\products\cart.html:52
+msgid "No image"
+msgstr "Нет изображения"
+
+#: .\templates\products\cart.html:81
+msgid "Update"
+msgstr "Обновить"
+
+#: .\templates\products\cart.html:102
+msgid "coupon code"
+msgstr "код купона"
+
+#: .\templates\products\cart.html:112
+msgid "CONTINUE SHOPPING"
+msgstr "ПРОДОЛЖИТЬ ПОКУПКИ"
+
+#: .\templates\products\cart.html:120
+msgid "Cart Total"
+msgstr "Итого корзина"
+
+#: .\templates\products\cart.html:125
+msgid "Subtotal:"
+msgstr "Промежуточный итог:"
+
+#: .\templates\products\cart.html:129
+msgid "Shipping:"
+msgstr "Доставка:"
+
+#: .\templates\products\cart.html:136
+msgid "Free Shipping"
+msgstr "Бесплатная доставка"
+
+#: .\templates\products\cart.html:145
+msgid "Standard:"
+msgstr "Стандарт:"
+
+#: .\templates\products\cart.html:154
+msgid "Express:"
+msgstr "Экспресс:"
+
+#: .\templates\products\cart.html:160
+msgid "Total:"
+msgstr "Итого:"
+
+#: .\templates\products\cart.html:167
+msgid "Proceed to Checkout"
+msgstr "Перейти к оформлению"
+
+
+#: .\templates\products\cart.html:178
+msgid "Looks like you haven't added anything to your cart yet."
+msgstr "Похоже, вы ещё ничего не добавили в корзину."
+
+#: .\templates\products\cart.html:180
+msgid "START SHOPPING"
+msgstr "НАЧАТЬ ПОКУПКИ"
+
+#: .\templates\products\shop.html:33
+msgid "Showing"
+msgstr "Показано"
+
+#: .\templates\products\shop.html:34
+msgid "of"
+msgstr "из"
+
+#: .\templates\products\shop.html:41
+msgid "Sort by:"
+msgstr "Сортировать по:"
+
+#: .\templates\products\shop.html:44
+msgid "Most Popular"
+msgstr "Самые популярные"
+
+#: .\templates\products\shop.html:45
+msgid "Most Rated"
+msgstr "С наивысшим рейтингом"
+
+#: .\templates\products\shop.html:46
+msgid "Date"
+msgstr "Дата"
+
+#: .\templates\products\shop.html:60
+msgid "New"
+msgstr "Новый"
+
+#: .\templates\products\shop.html:63
+msgid "Sale"
+msgstr "Скидка"
+
+#: .\templates\products\shop.html:85
+msgid "Add to cart"
+msgstr "В корзину"
+
+#: .\templates\products\shop.html:106
+msgid "Reviews"
+msgstr "Отзывы"
+
+#: .\templates\products\shop.html:112
+msgid "No products found."
+msgstr "Товары не найдены."
+
+#: .\templates\products\shop.html:123
+msgid "Previous"
+msgstr "Предыдущая"
+
+#: .\templates\products\shop.html:124
+msgid "Prev"
+msgstr "Пред."
+
+#: .\templates\products\shop.html:137
+msgid "Next"
+msgstr "Следующая"

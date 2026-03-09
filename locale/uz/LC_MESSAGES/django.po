@@ -1,0 +1,465 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-09 00:12+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: .\core\settings.py:119
+msgid "English"
+msgstr ""
+
+#: .\core\settings.py:120
+msgid "Uzbek"
+msgstr ""
+
+#: .\core\settings.py:121
+msgid "Russian"
+msgstr ""
+
+#: .\templates\layout\footer.html:11
+#: .\templates\layout\footer.html:11
+msgid ""
+"Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu "
+"vulputate magna eros eu erat."
+msgstr ""
+"Biz sifatli mebel va interyer dizayni mahsulotlarini taqdim etamiz. "
+"Mijozlarimiz qoniqishi bizning asosiy maqsadimizdir."
+
+#: .\templates\layout\footer.html:24
+msgid "Useful Links"
+msgstr "Foydali havolalar"
+
+#: .\templates\layout\footer.html:26
+msgid "About Molla"
+msgstr "Molla haqida"
+
+#: .\templates\layout\footer.html:27
+msgid "How to shop on Molla"
+msgstr "Mollada qanday xarid qilish kerak"
+
+#: .\templates\layout\footer.html:28
+msgid "FAQ"
+msgstr "Ko'p so'raladigan savollar"
+
+#: .\templates\layout\footer.html:29
+msgid "Contact us"
+msgstr "Biz bilan bog'laning"
+
+#: .\templates\layout\footer.html:31
+msgid "Log out"
+msgstr "Chiqish"
+
+#: .\templates\layout\footer.html:33
+msgid "Log in"
+msgstr "Kirish"
+
+#: .\templates\layout\footer.html:41
+msgid "Customer Service"
+msgstr "Mijozlarga xizmat"
+
+#: .\templates\layout\footer.html:43
+msgid "Payment Methods"
+msgstr "To'lov usullari"
+
+#: .\templates\layout\footer.html:44
+msgid "Money-back guarantee!"
+msgstr "Pul qaytarish kafolati!"
+
+#: .\templates\layout\footer.html:45
+msgid "Returns"
+msgstr "Qaytarish"
+
+#: .\templates\layout\footer.html:46
+msgid "Shipping"
+msgstr "Yetkazib berish"
+
+#: .\templates\layout\footer.html:47
+msgid "Terms and conditions"
+msgstr "Shartlar va qoidalar"
+
+#: .\templates\layout\footer.html:48
+msgid "Privacy Policy"
+msgstr "Maxfiylik siyosati"
+
+#: .\templates\layout\footer.html:55
+msgid "My Account"
+msgstr "Mening hisobim"
+
+#: .\templates\layout\footer.html:58
+msgid "My Profile"
+msgstr "Mening profilim"
+
+#: .\templates\layout\footer.html:60
+msgid "Sign In"
+msgstr "Kirish"
+
+#: .\templates\layout\footer.html:62
+msgid "View Cart"
+msgstr "Savatni ko'rish"
+
+#: .\templates\layout\footer.html:63
+msgid "My Wishlist"
+msgstr "Istaklar ro'yxati"
+
+#: .\templates\layout\footer.html:64
+msgid "Track My Order"
+msgstr "Buyurtmamni kuzatish"
+
+#: .\templates\layout\footer.html:65
+msgid "Help"
+msgstr "Yordam"
+
+#: .\templates\layout\footer.html:75
+msgid "Copyright © 2019 Molla Store. All Rights Reserved."
+msgstr "Mualliflik huquqi © 2019 Molla Do'koni. Barcha huquqlar himoyalangan."
+
+#: .\templates\layout\footer.html:77
+msgid "Payment methods"
+msgstr "To'lov usullari"
+
+#: .\templates\layout\header-base.html:55
+msgid "Call: +0123 456 789"
+msgstr "Qo'ng'iroq: +0123 456 789"
+
+#: .\templates\layout\header-base.html:61
+msgid "About Us"
+msgstr "Biz haqimizda"
+
+#: .\templates\layout\header-base.html:62
+msgid "Contact Us"
+msgstr "Biz bilan bog'laning"
+
+#: .\templates\layout\header-base.html:65
+msgid "Logout"
+msgstr "Chiqish"
+
+#: .\templates\layout\header-base.html:67
+msgid "Login"
+msgstr "Kirish"
+
+#: .\templates\layout\header-base.html:80
+msgid "Toggle mobile menu"
+msgstr "Mobil menyuni ochish"
+
+#: .\templates\layout\header-base.html:96
+msgid "Home"
+msgstr "Bosh sahifa"
+
+#: .\templates\layout\header-base.html:99
+msgid "Products"
+msgstr "Mahsulotlar"
+
+#: .\templates\layout\header-base.html:102
+msgid "Blogs"
+msgstr "Bloglar"
+
+#: .\templates\layout\header-base.html:105
+msgid "About"
+msgstr "Biz haqimizda"
+
+#: .\templates\layout\header-base.html:108
+msgid "Contact"
+msgstr "Aloqa"
+
+#: .\templates\layout\header-base.html:116
+msgid "Search"
+msgstr "Qidirish"
+
+#: .\templates\layout\header-base.html:122
+msgid "Search in..."
+msgstr "Qidirish..."
+
+#: .\templates\layout\header-base.html:130
+msgid "Compare Products"
+msgstr "Mahsulotlarni solishtirish"
+
+#: .\templates\layout\header-base.html:136
+msgid "Remove Product"
+msgstr "Mahsulotni o'chirish"
+
+#: .\templates\layout\header-base.html:145
+msgid "Clear All"
+msgstr "Hammasini tozalash"
+
+#: .\templates\layout\header-base.html:147
+msgid "Compare"
+msgstr "Solishtirish"
+
+#: .\templates\layout\header-base.html:186
+msgid "Your cart is empty"
+msgstr "Savatingiz bo'sh"
+
+#: .\templates\layout\header-base.html:191
+msgid "Total"
+msgstr "Jami"
+
+#: .\templates\layout\header-base.html:198
+msgid "Checkout"
+msgstr "Rasmiylashtirish"
+
+#: .\templates\pages\home.html:30
+msgid "SHOP NOW"
+msgstr "XARID QILISH"
+
+#: .\templates\pages\home.html:40
+msgid "Topsale Collection"
+msgstr "Eng ko'p sotilgan kolleksiya"
+
+#: .\templates\pages\home.html:41
+msgid "Living Room"
+msgstr "Yashash xonasi"
+
+#: .\templates\pages\home.html:41
+msgid "Furniture"
+msgstr "Mebel"
+
+#: .\templates\pages\home.html:95
+msgid "Trendy Products"
+msgstr "Ommabop mahsulotlar"
+
+#: .\templates\pages\home.html:97
+msgid "All"
+msgstr "Barchasi"
+
+#: .\templates\pages\home.html:99
+msgid "Decor"
+msgstr "Dekor"
+
+#: .\templates\pages\home.html:100
+msgid "Lighting"
+msgstr "Yoritish"
+
+#: .\templates\pages\home.html:113
+msgid "NEW"
+msgstr "YANGI"
+
+#: .\templates\pages\home.html:114
+msgid "OFF"
+msgstr "CHEGIRMA"
+
+#: .\templates\pages\home.html:121
+msgid "add to wishlist"
+msgstr "Istaklar ro'yxatiga qo'shish"
+
+#: .\templates\pages\home.html:135
+msgid "add to cart"
+msgstr "Savatga qo'shish"
+
+#: .\templates\pages\home.html:139
+msgid "No products yet. Add some in the admin panel."
+msgstr "Hali mahsulotlar yo'q. Admin panelida qo'shing."
+
+#: .\templates\pages\home.html:169
+msgid "No furniture products yet."
+msgstr "Hali mebel mahsulotlari yo'q."
+
+#: .\templates\pages\home.html:199
+msgid "No decor products yet."
+msgstr "Hali dekor mahsulotlari yo'q."
+
+#: .\templates\pages\home.html:229
+msgid "No lighting products yet."
+msgstr "Hali yoritish mahsulotlari yo'q."
+
+#: .\templates\pages\home.html:239
+msgid "Shop by Categories"
+msgstr "Kategoriyalar bo'yicha xarid qiling"
+
+#: .\templates\pages\home.html:254
+msgid "Shop Now"
+msgstr "Xarid qilish"
+
+#: .\templates\pages\home.html:331
+msgid "Payment & Delivery"
+msgstr "To'lov va yetkazib berish"
+
+#: .\templates\pages\home.html:332
+msgid "Free shipping for orders over $50"
+msgstr "$50 dan yuqori buyurtmalar uchun bepul yetkazib berish"
+
+#: .\templates\pages\home.html:340
+msgid "Return & Refund"
+msgstr "Qaytarish va pul qaytarish"
+
+#: .\templates\pages\home.html:341
+msgid "Free 100%% money back guarantee"
+msgstr "100%% pul qaytarish kafolati"
+
+#: .\templates\pages\home.html:349
+msgid "Quality Support"
+msgstr "Sifatli qo'llab-quvvatlash"
+
+#: .\templates\pages\home.html:350
+msgid "Always online feedback 24/7"
+msgstr "Har doim onlayn fikr-mulohaza 24/7"
+
+#: .\templates\pages\home.html:361
+msgid "From Our Blog"
+msgstr "Blogimizdan"
+
+#: .\templates\pages\home.html:368
+msgid "Read More"
+msgstr "Ko'proq o'qish"
+
+#: .\templates\pages\home.html:390
+msgid "View more articles"
+msgstr "Ko'proq maqolalar ko'rish"
+
+#: .\templates\pages\home.html:401
+msgid "Sign Up & Get 10%% Off"
+msgstr "Ro'yxatdan o'ting va 10%% chegirma oling"
+
+#: .\templates\pages\home.html:402
+msgid "Molla presents the best in interior design"
+msgstr "Molla interyer dizaynidagi eng yaxshilarni taqdim etadi"
+
+#: .\templates\pages\home.html:405
+msgid "SIGN UP"
+msgstr "RO'YXATDAN O'TISH"
+
+#: .\templates\products\cart.html:5
+msgid "Shopping Cart"
+msgstr "Xarid savati"
+
+#: .\templates\products\cart.html:12
+msgid "Shop"
+msgstr "Do'kon"
+
+#: .\templates\products\cart.html:35
+msgid "Product"
+msgstr "Mahsulot"
+
+#: .\templates\products\cart.html:36
+msgid "Price"
+msgstr "Narx"
+
+#: .\templates\products\cart.html:37
+msgid "Quantity"
+msgstr "Miqdor"
+
+#: .\templates\products\cart.html:52
+msgid "No image"
+msgstr "Rasm yo'q"
+
+#: .\templates\products\cart.html:81
+msgid "Update"
+msgstr "Yangilash"
+
+#: .\templates\products\cart.html:102
+msgid "coupon code"
+msgstr "kupon kodi"
+
+#: .\templates\products\cart.html:112
+msgid "CONTINUE SHOPPING"
+msgstr "XARIDNI DAVOM ETTIRISH"
+
+#: .\templates\products\cart.html:120
+msgid "Cart Total"
+msgstr "Savat jami"
+
+#: .\templates\products\cart.html:125
+msgid "Subtotal:"
+msgstr "Oraliq jami:"
+
+#: .\templates\products\cart.html:129
+msgid "Shipping:"
+msgstr "Yetkazib berish:"
+
+#: .\templates\products\cart.html:136
+msgid "Free Shipping"
+msgstr "Bepul yetkazib berish"
+
+#: .\templates\products\cart.html:145
+msgid "Standard:"
+msgstr "Standart:"
+
+#: .\templates\products\cart.html:154
+msgid "Express:"
+msgstr "Ekspress:"
+
+#: .\templates\products\cart.html:160
+msgid "Total:"
+msgstr "Jami:"
+
+#: .\templates\products\cart.html:167
+msgid "Proceed to Checkout"
+msgstr "Rasmiylashtirish"
+
+#: .\templates\products\cart.html:178
+msgid "Looks like you haven't added anything to your cart yet."
+msgstr "Hali savatga hech narsa qo'shmaganga o'xshaysiz."
+
+#: .\templates\products\cart.html:180
+msgid "START SHOPPING"
+msgstr "XARIDNI BOSHLASH"
+
+#: .\templates\products\shop.html:33
+msgid "Showing"
+msgstr "Ko'rsatilmoqda"
+
+#: .\templates\products\shop.html:34
+msgid "of"
+msgstr "dan"
+
+#: .\templates\products\shop.html:41
+msgid "Sort by:"
+msgstr "Saralash:"
+
+#: .\templates\products\shop.html:44
+msgid "Most Popular"
+msgstr "Eng mashhur"
+
+#: .\templates\products\shop.html:45
+msgid "Most Rated"
+msgstr "Eng yuqori baholangan"
+
+#: .\templates\products\shop.html:46
+msgid "Date"
+msgstr "Sana"
+
+#: .\templates\products\shop.html:60
+msgid "New"
+msgstr "Yangi"
+
+#: .\templates\products\shop.html:63
+msgid "Sale"
+msgstr "Chegirma"
+
+#: .\templates\products\shop.html:85
+msgid "Add to cart"
+msgstr "Savatga qo'shish"
+
+#: .\templates\products\shop.html:106
+msgid "Reviews"
+msgstr "Sharhlar"
+
+#: .\templates\products\shop.html:112
+msgid "No products found."
+msgstr "Mahsulotlar topilmadi."
+
+#: .\templates\products\shop.html:123
+msgid "Previous"
+msgstr "Oldingi"
+
+#: .\templates\products\shop.html:124
+msgid "Prev"
+msgstr "Oldingi"
+
+#: .\templates\products\shop.html:137
+msgid "Next"
+msgstr "Keyingi"
+
